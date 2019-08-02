@@ -115,7 +115,7 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        final View view = inflater.inflate(R.layout.fragment_home, container, false);
         textViewTemperature = view.findViewById(R.id.temperature);
         textViewSolution = view.findViewById(R.id.solution);
         textViewHumidity = view.findViewById(R.id.humidity);
@@ -451,12 +451,20 @@ public class HomeFragment extends Fragment {
 
                 }
 
-                assignPotBigL();
-                assignPotBigM();
-                assignPotBigR();
-                assignPotL();
-                assignPotM();
-                assignPotR();
+                Log.w(TAG, "View is: " + view);
+                Log.w(TAG, "Activity is: " + getActivity());
+
+                if (getActivity() == null) {
+                } else {
+                    Log.w(TAG, "Activity is:  " + getActivity());
+                    assignPotBigL();
+                    assignPotBigM();
+                    assignPotBigR();
+                    assignPotL();
+                    assignPotM();
+                    assignPotR();
+                }
+
             }
 
             @Override
