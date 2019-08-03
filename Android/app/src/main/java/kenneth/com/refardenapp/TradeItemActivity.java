@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -38,6 +39,7 @@ public class TradeItemActivity extends AppCompatActivity {
     private TextView mTradeItemPlantsWanted;
     private Button mTradeItemTradeButton;
     private String userName;
+    private String itemOwner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,9 @@ public class TradeItemActivity extends AppCompatActivity {
 
         final String uid = intent.getStringExtra("uid");
         final String timeStamp = intent.getStringExtra("timeStamp");
-        userName = intent.getStringExtra("userName");
+        itemOwner = intent.getStringExtra("itemOwner");
+        String request = intent.getStringExtra("request");
+        String requester = intent.getStringExtra("requester");
         int plantImage = intent.getIntExtra("plantImage",0);
         String plantType = intent.getStringExtra("plantType");
         String plantsWanted = intent.getStringExtra("plantsWanted");
@@ -80,7 +84,7 @@ public class TradeItemActivity extends AppCompatActivity {
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
 
-        mTradeItemProfileName.setText(userName);
+        mTradeItemProfileName.setText(itemOwner);
 //        mTradeItemProfileImage.setImageResource(plantImage);
         mTradeItemPlantType.setText(plantType);
         mTradeItemPlantsWanted.setText(plantsWanted);
@@ -128,7 +132,13 @@ public class TradeItemActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         //Update requests
                         myRef.child("Trading Platform").child(uid).child(timeStamp).child("Request").setValue("yes");
+                        myRef.child("Trading Platform").child(uid).child(timeStamp).child("Requester").child(mAuth.getCurrentUser().getUid()).setValue(userName);
                         myRef.child("User Accounts").child(uid).child("Trading Platform").child(timeStamp).child("Request").setValue("yes");
+                        myRef.child("User Accounts").child(uid).child("Trading Platform").child(timeStamp).child("Requester").child(mAuth.getCurrentUser().getUid()).setValue(userName);
+
+                        Toast.makeText(TradeItemActivity.this, "Trade request sent!",
+                                Toast.LENGTH_LONG).show();
+                        finish();
                     }
                 }
         );
@@ -139,7 +149,8 @@ public class TradeItemActivity extends AppCompatActivity {
             if (ds.getKey().equals("Name")) {
                 Log.w(TAG, "ds: " + ds.getKey());
                 if (ds.getValue()== null){} else {
-                    if (ds.getValue().toString().equals(userName)) {
+                    userName = ds.getValue().toString();
+                    if (ds.getValue().toString().equals(itemOwner)) {
                         Log.w(TAG, "ds: " + ds.getValue().toString() +" userName: " + userName);
                         mTradeItemTradeButton.setVisibility(View.INVISIBLE);
                     }

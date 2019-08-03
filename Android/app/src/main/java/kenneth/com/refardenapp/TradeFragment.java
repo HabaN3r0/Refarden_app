@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by 1002215 on 20/7/19.
@@ -65,13 +66,13 @@ public class TradeFragment extends Fragment implements TradeAdapter.OnClickListe
 //        mTradeList.add(new TradeItem(R.drawable.basil, "Basil", "Fresh basil grown since 03/05/19",
 //                R.drawable.ic_full_star, R.drawable.ic_full_star, R.drawable.ic_full_star, R.drawable.ic_full_star,
 //                R.drawable.ic_half_star));
-
         myRef.child("Trading Platform").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 //Call another function to update the UI on the screen by passing in datasnapshot which is like the info
+                Log.w(TAG, "Trade fragment ondatachange");
                 extractTradeList(dataSnapshot);
             }
 
@@ -114,7 +115,9 @@ public class TradeFragment extends Fragment implements TradeAdapter.OnClickListe
         Intent intent = new Intent(this.getActivity(), TradeItemActivity.class);
         intent.putExtra("uid", mTradeList.get(position).getmUid());
         intent.putExtra("timeStamp", mTradeList.get(position).getmTimeStamp());
-        intent.putExtra("userName", mTradeList.get(position).getmUserName());
+        intent.putExtra("itemOwner", mTradeList.get(position).getmItemOwner());
+        intent.putExtra("request", mTradeList.get(position).getmRequest());
+        intent.putExtra("requester", mTradeList.get(position).getmRequester());
         intent.putExtra("plantImage", mTradeList.get(position).getmPlantImage());
         intent.putExtra("plantType", mTradeList.get(position).getmPlantType());
         intent.putExtra("plantsWanted", mTradeList.get(position).getmPlantsWanted());
@@ -130,6 +133,7 @@ public class TradeFragment extends Fragment implements TradeAdapter.OnClickListe
 
     private void extractTradeList(DataSnapshot dataSnapshot) {
 
+        mTradeList = new ArrayList<>();
         //Running through "Trading Platform" folder
         for (DataSnapshot ds1 : dataSnapshot.getChildren()) {
             //Running through "UID" folder
@@ -139,8 +143,9 @@ public class TradeFragment extends Fragment implements TradeAdapter.OnClickListe
             String plantType = "Nil";
             String plantsWanted = "Nil";
             String description = "Nil";
-            String userName = "Nil";
+            String itemOwner = "Nil";
             String request = "Nil";
+            HashMap<String, String> requester = new HashMap<>();
             int star1 = 0;
             int star2 = 0;
             int star3 = 0;
@@ -157,32 +162,42 @@ public class TradeFragment extends Fragment implements TradeAdapter.OnClickListe
                     if (ds3.getKey().equals("Description")) {
                         if (ds3.getValue().toString().equals(null)) {
                         } else {
+                            Log.d(TAG, "Info is:  " + ds3.getValue().toString());
                             description = ds3.getValue().toString();
                         }
                     } else if (ds3.getKey().equals("Name")) {
                         if (ds3.getValue().toString().equals(null)) {
                         } else {
-                            userName = ds3.getValue().toString();
+                            Log.d(TAG, "Info is:  " + ds3.getValue().toString());
+                            itemOwner = ds3.getValue().toString();
                         }
                     } else if (ds3.getKey().equals("Plant Type")) {
                         if (ds3.getValue().toString().equals(null)) {
                         } else {
+                            Log.d(TAG, "Info is:  " + ds3.getValue().toString());
                             plantType = ds3.getValue().toString();
                         }
 
                     } else if (ds3.getKey().equals("Plants Wanted")) {
                         if (ds3.getValue().toString().equals(null)) {
                         } else {
+                            Log.d(TAG, "Info is:  " + ds3.getValue().toString());
                             plantsWanted = ds3.getValue().toString();
                         }
                     } else if (ds3.getKey().equals("Request")) {
                         if (ds3.getValue().toString().equals(null)) {
                         } else {
+                            Log.d(TAG, "Info is:  " + ds3.getValue().toString());
                             request = ds3.getValue().toString();
+                        }
+                    } else if (ds3.getKey().equals("Requester")) {
+                        if (ds3.getValue().toString().equals(null)) {
+                        } else {
                         }
                     } else if (ds3.getKey().equals("Stars")) {
                         if (ds3.getValue().toString().equals(null)) {
                         } else {
+                            Log.d(TAG, "Info is:  " + ds3.getValue().toString());
                             if (ds3.getValue().toString().equals("5")) {
                                 star1 = R.drawable.ic_full_star;
                                 star2 = R.drawable.ic_full_star;
@@ -224,11 +239,16 @@ public class TradeFragment extends Fragment implements TradeAdapter.OnClickListe
                     }
 
                 }
-                mTradeList.add((new TradeItem(uid, timeStamp, plantImage, plantType, plantsWanted, description, userName, request, star1, star2, star3, star4, star5)));
+                mTradeList.add((new TradeItem(uid, timeStamp, plantImage, plantType, plantsWanted, description, itemOwner, request, requester, star1, star2, star3, star4, star5)));
+                Log.d(TAG, "mtradelist is:  " + mTradeList);
+
             }
+
         }
+        mAdapter = new TradeAdapter(mTradeList, this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
     }
 
 }

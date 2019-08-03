@@ -40,6 +40,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <!-- android:windowSoftInputMode="stateVisible|adjustPan"/> -->
         <activity android:name=".TradeItemActivity"></activity>
+        <activity android:name=".NotificationsItemActivity"></activity>
     </application>
 
 </manifest>
