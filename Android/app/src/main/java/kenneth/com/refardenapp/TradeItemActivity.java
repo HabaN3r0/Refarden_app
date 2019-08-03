@@ -37,6 +37,7 @@ public class TradeItemActivity extends AppCompatActivity {
     private ImageView mTradeItemPostPlantImage;
     private TextView mTradeItemPlantsWanted;
     private Button mTradeItemTradeButton;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +62,7 @@ public class TradeItemActivity extends AppCompatActivity {
 
         final String uid = intent.getStringExtra("uid");
         final String timeStamp = intent.getStringExtra("timeStamp");
-        String userName = intent.getStringExtra("userName");
+        userName = intent.getStringExtra("userName");
         int plantImage = intent.getIntExtra("plantImage",0);
         String plantType = intent.getStringExtra("plantType");
         String plantsWanted = intent.getStringExtra("plantsWanted");
@@ -111,7 +112,7 @@ public class TradeItemActivity extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 //Call another function to update the UI on the screen by passing in datasnapshot which is like the info
-//                updateName(dataSnapshot);
+                checkTradeUser(dataSnapshot);
             }
 
             @Override
@@ -132,5 +133,20 @@ public class TradeItemActivity extends AppCompatActivity {
                 }
         );
     }
+
+    private void checkTradeUser(DataSnapshot dataSnapshot) {
+        for (DataSnapshot ds : dataSnapshot.getChildren()) {
+            if (ds.getKey().equals("Name")) {
+                Log.w(TAG, "ds: " + ds.getKey());
+                if (ds.getValue()== null){} else {
+                    if (ds.getValue().toString().equals(userName)) {
+                        Log.w(TAG, "ds: " + ds.getValue().toString() +" userName: " + userName);
+                        mTradeItemTradeButton.setVisibility(View.INVISIBLE);
+                    }
+                }
+            }
+        }
+    }
+
 
 }

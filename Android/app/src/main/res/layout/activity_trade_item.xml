@@ -160,10 +160,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"
-        android:background="@drawable/transparent_bg_bordered_button"
-        android:paddingLeft="100dp"
-        android:paddingRight="100dp"
-        android:text="Trade"
+        android:background="@drawable/lightgreen_bg_button"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="Request Trade"
         android:textAllCaps="false"
         android:textColor="@color/white" />
 
