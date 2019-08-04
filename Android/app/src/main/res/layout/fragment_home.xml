@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:layout_height="match_parent">
 
     <!--<TextView-->
         <!--android:id="@+id/homeMsg"-->
@@ -51,7 +50,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="30dp"
             android:text="Garden Layout"
             android:textColor="@color/white"
             android:textSize="20dp" />
@@ -71,7 +69,6 @@
             android:layout_marginStart="-150dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/translucent_containers">
-
 
         </LinearLayout>
 

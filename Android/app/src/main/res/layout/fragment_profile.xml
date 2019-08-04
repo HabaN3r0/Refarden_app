@@ -64,7 +64,7 @@
     <LinearLayout
         android:id="@+id/profilePlants"
         android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_height="450dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:padding="10dp"
@@ -76,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="Plants owned: "
+            android:text="My plants:  "
             android:textColor="@color/white"
             android:textSize="20dp" />
 

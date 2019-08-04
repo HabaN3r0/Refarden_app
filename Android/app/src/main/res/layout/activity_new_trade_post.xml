@@ -169,7 +169,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:background="@drawable/ic_add" />
+                android:background="@drawable/ic_camera" />
 
             <Button
                 android:id="@+id/newPostUploadGallery"
@@ -177,7 +177,7 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="70dp"
                 android:layout_gravity="center"
-                android:background="@drawable/ic_add"/>
+                android:background="@drawable/ic_gallery"/>
 
         </LinearLayout>
 

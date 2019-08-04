@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="@drawable/background"
+    android:background="@drawable/darkgreenleaves"
     android:gravity="bottom"
     android:padding="16dp"
     android:theme="@style/TextInputLayoutAppearance">
@@ -32,7 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Name"/>
+            android:text="Name"
+            android:textColor="@color/dimgrey"/>
 
     </LinearLayout>
 
