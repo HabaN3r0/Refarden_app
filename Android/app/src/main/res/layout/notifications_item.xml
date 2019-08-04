@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
     android:layout_marginStart="30dp"
-    app:cardBackgroundColor="@color/translucent"
+    android:backgroundTint="@color/lightgrey"
     app:cardCornerRadius="20dp">
 
     <LinearLayout
@@ -18,12 +18,12 @@
 
         <TextView
             android:id="@+id/notificationText"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_gravity="center"
             android:text="Notification"
-            android:textColor="@color/white"
+            android:textColor="@color/brightgrey"
             android:textSize="15dp"
             android:background="@color/transparent"/>
 
@@ -31,9 +31,9 @@
             android:id="@+id/notificationImage"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="50dp"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher_round" />
+            android:src="@mipmap/ic_broccoli_round" />
 
     </LinearLayout>
 

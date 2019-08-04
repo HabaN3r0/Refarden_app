@@ -18,8 +18,8 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="Line 1"
-            android:textColor="@color/red"
+            android:text="Plant Type"
+            android:textColor="@color/brightgrey"
             android:textSize="20dp" />
 
         <TextView

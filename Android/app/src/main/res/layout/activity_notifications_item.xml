@@ -13,23 +13,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="-10dp"
         android:padding="20dp">
 
-        <Button
-            android:id="@+id/notificationsItemBackButton"
-            android:layout_width="20dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center"
-            android:background="@drawable/ic_action_back" />
+        <LinearLayout
+            android:id="@+id/notificationsItemBackButtonLinearLayout"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="-20dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/notificationsItemBackButton"
+                android:layout_width="20dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_action_back" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/notificationsItemHeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="-30dp"
             android:text="Trade Request"
+            android:textColor="@color/white"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -38,7 +50,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="-20dp"
         android:background="@drawable/translucent_containers"
         android:orientation="vertical"
         android:padding="20dp">
@@ -59,7 +71,7 @@
 
             <TextView
                 android:id="@+id/notificationsItemProfileName"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:layout_marginStart="20dp"
@@ -72,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tradeReview"
                 android:layout_gravity="bottom"
+                android:layout_marginStart="-205dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -122,35 +135,36 @@
             android:id="@+id/notificationsItemOwnerHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:text="Your plant in the market"
-            android:textSize="10dp" />
+            android:textSize="15dp" />
 
         <LinearLayout
             android:id="@+id/notificationsItemOwner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:padding="20dp"
+            android:orientation="vertical"
             android:background="@drawable/translucent_containers">
 
             <TextView
                 android:id="@+id/notificationsItemOwnerItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="center"
                 android:text="Owner Item"
-                android:textColor="@color/red"
-                android:textSize="15dp" />
+                android:textColor="@color/brightgrey"
+                android:textSize="25dp" />
 
             <ImageView
                 android:id="@+id/notificationsItemOwnerItemImage"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="left"
+                android:layout_gravity="center"
                 android:src="@mipmap/ic_launcher_round" />
 
         </LinearLayout>
@@ -159,10 +173,10 @@
             android:id="@+id/notificationsItemRequesterHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
             android:text="Plants from ..."
-            android:textSize="10dp" />
+            android:textSize="15dp" />
 
         <LinearLayout
             android:id="@+id/notificationsItemRequester"
@@ -170,6 +184,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:orientation="vertical"
+            android:layout_marginTop="10dp"
             android:padding="20dp"
             android:background="@drawable/translucent_containers">
 
@@ -177,17 +192,17 @@
                 android:id="@+id/notificationsItemRequesterItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="center"
                 android:text="Requester Item"
-                android:textColor="@color/red"
-                android:textSize="15dp" />
+                android:textColor="@color/brightgrey"
+                android:textSize="25dp" />
 
             <ImageView
                 android:id="@+id/notificationsItemRequesterItemImage"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="left"
+                android:layout_gravity="center"
                 android:src="@mipmap/ic_launcher_round" />
 
         </LinearLayout>
@@ -199,6 +214,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:padding="20dp">
 
@@ -207,7 +223,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/lightgreen_bg_button"
+            android:background="@drawable/dullgreen_bg_button"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
             android:text="Accept"
@@ -219,8 +235,8 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="50dp"
-            android:background="@drawable/lightgreen_bg_button"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/dullred_bg_button"
             android:paddingLeft="50dp"
             android:paddingRight="50dp"
             android:text="Decline"

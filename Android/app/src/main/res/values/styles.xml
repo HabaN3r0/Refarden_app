@@ -90,7 +90,7 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textColorHint">@color/white</item>
         <item name="colorControlNormal">@color/white</item>
-        <item name="colorControlActivated">@color/lightgreen</item>
+        <item name="colorControlActivated">@color/dullgreen</item>
         <item name="colorControlHighlight">@color/white</item>
         <item name="colorSwitchThumbNormal">@color/blue</item>
         <item name="background">@color/transparent</item>
@@ -109,7 +109,7 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textColorHint">@color/white</item>
         <item name="colorControlNormal">@color/white</item>
-        <item name="colorControlActivated">@color/test</item>
+        <item name="colorControlActivated">@color/brightgrey</item>
         <item name="colorControlHighlight">@color/white</item>
         <item name="colorSwitchThumbNormal">@color/blue</item>
         <item name="background">@color/transparent</item>
