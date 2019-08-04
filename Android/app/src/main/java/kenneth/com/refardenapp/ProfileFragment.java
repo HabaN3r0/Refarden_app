@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -81,6 +82,8 @@ public class ProfileFragment extends Fragment {
     }
 
     private void updateUi(DataSnapshot dataSnapshot){
+        HashMap<String, String> plantTypesList = new HashMap<>();
+        String print = "";
 
         for (DataSnapshot ds : dataSnapshot.getChildren()) {
             Log.d(TAG, "ds is:  " + ds.getKey() + " value: " + ds.getValue());
@@ -128,7 +131,16 @@ public class ProfileFragment extends Fragment {
                 }
             } else if (ds.getKey().equals("Plant Types")) {
                 if (ds.getValue().equals(null)) {} else {
-                    mProfilePlantTypes.setText(ds.getValue() + "plants");
+                    for (DataSnapshot ds2 : ds.getChildren()) {
+                        plantTypesList.put(ds2.getKey(),ds2.getValue().toString());
+                    }
+
+                    for (HashMap.Entry<String, String> entry : plantTypesList.entrySet()) {
+                        print += entry.getKey() + "\n";
+                        Log.d(TAG, "requester uid is:  " + entry.getKey() + " requester name is: " + entry.getValue());
+                    }
+                    mProfilePlantTypes.setText(print);
+
                 }
             } else {}
         }

@@ -75,7 +75,7 @@ public class NotificationsItemActivity extends AppCompatActivity {
         String request = intent.getStringExtra("request");
         HashMap<String, String> requester = (HashMap<String, String>) intent.getSerializableExtra("requester");
         int plantImage = intent.getIntExtra("plantImage",0);
-        String plantType = intent.getStringExtra("plantType");
+        final String plantType = intent.getStringExtra("plantType");
         String plantsWanted = intent.getStringExtra("plantsWanted");
         String description = intent.getStringExtra("description");
         int star1 = intent.getIntExtra("star1",0);
@@ -147,31 +147,39 @@ public class NotificationsItemActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //TODO: Accept trade backend
-//                        myRef.child("Trading Platform").child(uid).child(timeStamp).child("Request").setValue("yes");
-//                        myRef.child("Trading Platform").child(uid).child(timeStamp).child("Requester").child(mAuth.getCurrentUser().getUid()).setValue(userName);
+
+                        myRef.child("Trading Platform").child(uid).child(timeStamp).removeValue();
+                        myRef.child("User Accounts").child(uid).child("Trading Platform").child(timeStamp).removeValue();
+                        myRef.child("User Accounts").child(uid).child("Profile").child("Plant Types").child(plantType).removeValue();
 //                        myRef.child("User Accounts").child(uid).child("Trading Platform").child(timeStamp).child("Request").setValue("yes");
 //                        myRef.child("User Accounts").child(uid).child("Trading Platform").child(timeStamp).child("Requester").child(mAuth.getCurrentUser().getUid()).setValue(userName);
 //
-//                        Toast.makeText(NotificationsItemActivity.this, "Trade request sent!",
-//                                Toast.LENGTH_LONG).show();
+                        //TODO: Can maybe send a notif to the other user?
+
+                        Toast.makeText(NotificationsItemActivity.this, "Trade accepted!",
+                                Toast.LENGTH_LONG).show();
                         finish();
                     }
                 }
         );
 
-        mNotificationsItemAcceptButton.setOnClickListener(
+        final String finalRequesterUid = requesterUid;
+        final String finalRequesterUid1 = requesterUid;
+        final String finalRequesterUid2 = requesterUid;
+        mNotificationsItemDeclineButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //TODO: Decline trade backend
-//                        myRef.child("Trading Platform").child(uid).child(timeStamp).child("Request").setValue("yes");
+
+                        myRef.child("Trading Platform").child(uid).child(timeStamp).child("Requester").child(finalRequesterUid).removeValue();
+                        myRef.child("User Accounts").child(uid).child("Trading Platform").child(timeStamp).child("Requester").child(finalRequesterUid2).removeValue();
 //                        myRef.child("Trading Platform").child(uid).child(timeStamp).child("Requester").child(mAuth.getCurrentUser().getUid()).setValue(userName);
 //                        myRef.child("User Accounts").child(uid).child("Trading Platform").child(timeStamp).child("Request").setValue("yes");
-//                        myRef.child("User Accounts").child(uid).child("Trading Platform").child(timeStamp).child("Requester").child(mAuth.getCurrentUser().getUid()).setValue(userName);
 //
-//                        Toast.makeText(NotificationsItemActivity.this, "Trade request sent!",
-//                                Toast.LENGTH_LONG).show();
+                        //TODO: Can maybe send a notif to the other user?
+
+                        Toast.makeText(NotificationsItemActivity.this, "Trade declined!",
+                                Toast.LENGTH_LONG).show();
                         finish();
                     }
                 }

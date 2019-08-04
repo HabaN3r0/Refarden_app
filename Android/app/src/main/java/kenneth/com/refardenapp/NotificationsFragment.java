@@ -167,6 +167,7 @@ public class NotificationsFragment extends Fragment implements NotificationsAdap
                             }
                         } else if (ds3.getKey().equals("Requester")) {
                             if (ds3.getValue().toString().equals(null)) {
+                                requester = null;
                             } else {
                                 for (DataSnapshot ds4 : ds3.getChildren()) {
                                     Log.d(TAG, "ds4 is:  " + ds4.getKey());
@@ -218,7 +219,7 @@ public class NotificationsFragment extends Fragment implements NotificationsAdap
                         }
 
                     }
-                    if (request.equals("yes")) {
+                    if (requester != null) {
                         HashMap<String, String> tempRequester = new HashMap<>();
                         for (HashMap.Entry<String, String> entry : requester.entrySet()) {
                             Log.d(TAG, "requester uid is:  " + entry.getKey() + " requester name is: " + entry.getValue());

@@ -6,7 +6,7 @@
     android:layout_marginBottom="10dp"
     android:layout_marginStart="30dp"
     app:cardBackgroundColor="@color/translucent"
-    android:background="@drawable/translucent_containers">
+    app:cardCornerRadius="20dp">
 
     <LinearLayout
         android:id="@+id/newPostPlantType"
@@ -19,18 +19,19 @@
         <TextView
             android:id="@+id/notificationText"
             android:layout_width="150dp"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_gravity="center"
             android:text="Notification"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:background="@color/transparent"/>
 
         <ImageView
             android:id="@+id/notificationImage"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="80dp"
             android:layout_gravity="center"
             android:src="@mipmap/ic_launcher_round" />
 

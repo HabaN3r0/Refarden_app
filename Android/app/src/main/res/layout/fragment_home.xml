@@ -55,14 +55,6 @@
             android:text="Garden Layout"
             android:textColor="@color/white"
             android:textSize="20dp" />
-        
-        <Button
-            android:id="@+id/shareButton"
-            android:layout_width="17dp"
-            android:layout_height="22dp"
-            android:layout_marginStart="230dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/ic_action_share"/>
 
     </LinearLayout>
 
@@ -358,7 +350,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="-180dp"
+        android:layout_marginTop="-250dp"
         android:text="Growing Conditions"
         android:textColor="@color/white"
         android:textSize="20dp" />

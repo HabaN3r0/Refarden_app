@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_marginTop="20dp"
-            android:text="Plant Types"
+            android:text="Nil"
             android:textColor="@color/white"
             android:textSize="15dp" />
 

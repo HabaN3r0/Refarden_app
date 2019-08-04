@@ -212,6 +212,8 @@ public class NewTradePostActivity extends AppCompatActivity {
         myRef.child("User Accounts").child(mAuth.getCurrentUser().getUid()).child("Trading Platform").child(timeStamp).child("Description").setValue(mNewPostDescription.getEditText().getText().toString().trim());
         myRef.child("User Accounts").child(mAuth.getCurrentUser().getUid()).child("Trading Platform").child(timeStamp).child("Request").setValue("no");
 
+        myRef.child("User Accounts").child(mAuth.getCurrentUser().getUid()).child("Profile").child("Plant Types").child(mNewPostPlantTypeEditText.getEditText().getText().toString().trim()).setValue(1);
+
         Toast.makeText(NewTradePostActivity.this, "Trade post created",
                 Toast.LENGTH_LONG).show();
         finish();

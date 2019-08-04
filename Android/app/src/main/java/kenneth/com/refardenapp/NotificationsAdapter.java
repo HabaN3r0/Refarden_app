@@ -79,7 +79,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter<NotificationsAdap
             requesterUid = entry.getKey();
             requesterName = entry.getValue();
         }
-        holder.mNotifTextView.setText(requesterName);
+        holder.mNotifTextView.setText("You have a request from: " + requesterName);
 
 //        holder.mDescriptionTextView.setText(currentItem.getmDescription());
 //        holder.mStar1.setImageResource(currentItem.getmStar1());
