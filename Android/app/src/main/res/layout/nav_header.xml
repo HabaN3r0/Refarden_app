@@ -14,11 +14,11 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/profileImage"
+            android:id="@+id/navHeaderProfileImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher_round"/>
+            android:src="@mipmap/ic_broccoli_round"/>
         <!--<TextView-->
         <!--android:id="@+id/profileName"-->
         <!--android:layout_width="wrap_content"-->
@@ -28,7 +28,7 @@
         <!--android:textAppearance="@style/TextInputLayoutAppearance"/>-->
 
         <TextView
-            android:id="@+id/profileName"
+            android:id="@+id/navHeaderProfileName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
