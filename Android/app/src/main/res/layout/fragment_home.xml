@@ -10,31 +10,31 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_alignParentStart="true"-->
         <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_marginStart="14dp"-->
-        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginStart="14sp"-->
+        <!--android:layout_marginTop="10sp"-->
         <!--android:text="Home"-->
         <!--android:textColor="@color/white"-->
-        <!--android:textSize="30dp" />-->
+        <!--android:textSize="30sp" />-->
 
     <!--<LinearLayout-->
         <!--android:id="@+id/buttonPanel"-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginStart="14dp"-->
-        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginStart="14sp"-->
+        <!--android:layout_marginTop="10sp"-->
         <!--android:orientation="horizontal">-->
 
         <!--<Button-->
             <!--android:id="@+id/menuButton"-->
-            <!--android:layout_width="27dp"-->
-            <!--android:layout_height="32dp"-->
+            <!--android:layout_width="27sp"-->
+            <!--android:layout_height="32sp"-->
             <!--android:background="@drawable/ic_action_menu" />-->
 
         <!--<Button-->
             <!--android:id="@+id/shareButton"-->
-            <!--android:layout_width="27dp"-->
-            <!--android:layout_height="32dp"-->
-            <!--android:layout_marginStart="300dp"-->
+            <!--android:layout_width="27sp"-->
+            <!--android:layout_height="32sp"-->
+            <!--android:layout_marginStart="300sp"-->
             <!--android:background="@drawable/ic_action_share" />-->
 
     <!--</LinearLayout>-->
@@ -49,32 +49,32 @@
             android:id="@+id/header1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="10sp"
             android:text="Garden Layout"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="1000dp"
+        android:layout_width="1000sp"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/container_mid_left"
-            android:layout_width="200dp"
-            android:layout_height="400dp"
+            android:layout_width="200sp"
+            android:layout_height="400sp"
             android:orientation="horizontal"
-            android:layout_marginStart="-130dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="-130sp"
+            android:layout_marginTop="30sp"
             android:background="@drawable/translucent_containers">
 
             <LinearLayout
                 android:id="@+id/toggleLeftButton"
                 android:orientation="vertical"
-                android:layout_width="27dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="150dp"
+                android:layout_width="27sp"
+                android:layout_height="32sp"
+                android:layout_marginStart="150sp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_action_toggle_left" />
 
@@ -82,19 +82,19 @@
 
         <LinearLayout
             android:id="@+id/container_right_mid"
-            android:layout_width="200dp"
-            android:layout_height="400dp"
+            android:layout_width="200sp"
+            android:layout_height="400sp"
             android:orientation="horizontal"
             android:layout_alignStart="@+id/homeMsg"
-            android:layout_marginStart="-150dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="-150sp"
+            android:layout_marginTop="30sp"
             android:background="@drawable/translucent_containers">
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="27dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="150dp"
+                android:layout_width="27sp"
+                android:layout_height="32sp"
+                android:layout_marginStart="150sp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_action_toggle_left" />
 
@@ -103,39 +103,38 @@
 
         <LinearLayout
             android:id="@+id/container_overlay_name"
-            android:layout_width="412dp"
-            android:layout_height="732dp"
+            android:layout_width="412sp"
+            android:layout_height="732sp"
             android:layout_alignStart="@+id/homeMsg"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="-14dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="-14sp"
+            android:layout_marginTop="0sp"
             android:background="@drawable/translucent_containers"
             android:orientation="horizontal">
 
             <RelativeLayout
                 android:id="@+id/container_name_input"
-                android:layout_width="250dp"
-                android:layout_height="150dp"
+                android:layout_width="250sp"
+                android:layout_height="150sp"
                 android:orientation="horizontal"
                 android:layout_alignStart="@+id/homeMsg"
                 android:layout_below="@+id/menuButton"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="120dp"
+                android:layout_marginStart="60sp"
+                android:layout_marginTop="120sp"
                 android:background="@drawable/translucent_containers">
 
                 <EditText
                     android:id="@+id/textplantname"
-                    android:layout_width="200dp"
-                    android:layout_height="70dp"
-                    android:layout_centerHorizontal="true"
-                    />
+                    android:layout_width="200sp"
+                    android:layout_height="70sp"
+                    android:layout_centerHorizontal="true"/>
 
                 <Button
                     android:id="@+id/button_enter_name"
                     android:layout_below="@+id/textplantname"
-                    android:layout_marginTop="30dp"
-                    android:layout_width="70dp"
-                    android:layout_height="50dp"
+                    android:layout_marginTop="30sp"
+                    android:layout_width="70sp"
+                    android:layout_height="50sp"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/transparent_bg_bordered_button"
                     android:text="ENTER" />
@@ -146,12 +145,12 @@
 
         <LinearLayout
             android:id="@+id/container_mid1"
-            android:layout_width="200dp"
-            android:layout_height="400dp"
+            android:layout_width="200sp"
+            android:layout_height="400sp"
             android:orientation="horizontal"
             android:layout_alignStart="@+id/homeMsg"
-            android:layout_marginStart="90dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="90sp"
+            android:layout_marginTop="30sp"
             android:background="@drawable/translucent_containers">
 
 
@@ -159,12 +158,12 @@
 
         <LinearLayout
             android:id="@+id/container_mid2"
-            android:layout_width="200dp"
-            android:layout_height="400dp"
+            android:layout_width="200sp"
+            android:layout_height="400sp"
             android:orientation="horizontal"
             android:layout_alignStart="@+id/homeMsg"
-            android:layout_marginStart="105dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="105sp"
+            android:layout_marginTop="30sp"
             android:background="@drawable/translucent_containers">
 
 
@@ -173,13 +172,13 @@
 
         <!--LinearLayout
             android:id="@+id/container_mid2"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
+            android:layout_width="200sp"
+            android:layout_height="300sp"
             android:orientation="horizontal"
             android:layout_alignStart="@+id/homeMsg"
             android:layout_below="@+id/menuButton"
-            android:layout_marginStart="90dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="90sp"
+            android:layout_marginTop="30sp"
             android:background="@drawable/translucent_containers">
 
 
@@ -187,12 +186,12 @@
 
         <LinearLayout
             android:id="@+id/container_mid3"
-            android:layout_width="200dp"
-            android:layout_height="400dp"
+            android:layout_width="200sp"
+            android:layout_height="400sp"
             android:orientation="horizontal"
             android:layout_alignStart="@+id/homeMsg"
-            android:layout_marginStart="90dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="90sp"
+            android:layout_marginTop="30sp"
             android:background="@drawable/translucent_containers">
 
 
@@ -200,22 +199,22 @@
 
         <LinearLayout
             android:id="@+id/container_overlay1"
-            android:layout_width="440dp"
-            android:layout_height="732dp"
+            android:layout_width="440sp"
+            android:layout_height="732sp"
             android:layout_alignStart="@+id/homeMsg"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="0sp"
+            android:layout_marginTop="0sp"
             android:background="@drawable/translucent_containers"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/container_big1"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="334dp"
-                android:layout_height="455dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="50dp"
+                android:layout_width="334sp"
+                android:layout_height="455sp"
+                android:layout_marginStart="37sp"
+                android:layout_marginTop="50sp"
                 android:background="@drawable/translucent_loweropacity_containers"
                 android:orientation="horizontal">
 
@@ -226,12 +225,12 @@
 
         <LinearLayout
             android:id="@+id/container_overlay2"
-            android:layout_width="440dp"
-            android:layout_height="732dp"
+            android:layout_width="440sp"
+            android:layout_height="732sp"
             android:layout_alignStart="@+id/homeMsg"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="0sp"
+            android:layout_marginTop="0sp"
             android:background="@drawable/translucent_containers"
             android:orientation="horizontal">
 
@@ -239,10 +238,10 @@
             <LinearLayout
                 android:id="@+id/container_big2"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="334dp"
-                android:layout_height="455dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="50dp"
+                android:layout_width="334sp"
+                android:layout_height="455sp"
+                android:layout_marginStart="37sp"
+                android:layout_marginTop="50sp"
                 android:background="@drawable/translucent_loweropacity_containers"
                 android:orientation="horizontal">
 
@@ -252,22 +251,22 @@
 
         <LinearLayout
             android:id="@+id/container_overlay3"
-            android:layout_width="440dp"
-            android:layout_height="732dp"
+            android:layout_width="440sp"
+            android:layout_height="732sp"
             android:layout_alignStart="@+id/homeMsg"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="0sp"
+            android:layout_marginTop="0sp"
             android:background="@drawable/translucent_containers"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/container_big3"
                 android:layout_gravity="center_horizontal"
-                android:layout_width="334dp"
-                android:layout_height="455dp"
-                android:layout_marginStart="37dp"
-                android:layout_marginTop="50dp"
+                android:layout_width="334sp"
+                android:layout_height="455sp"
+                android:layout_marginStart="37sp"
+                android:layout_marginTop="50sp"
                 android:background="@drawable/translucent_loweropacity_containers"
                 android:orientation="horizontal">
 
@@ -276,20 +275,20 @@
 
         <LinearLayout
             android:id="@+id/container_mid_right"
-            android:layout_width="200dp"
-            android:layout_height="400dp"
+            android:layout_width="200sp"
+            android:layout_height="400sp"
             android:orientation="horizontal"
             android:layout_alignStart="@+id/homeMsg"
-            android:layout_marginStart="345dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="345sp"
+            android:layout_marginTop="30sp"
             android:background="@drawable/translucent_containers">
 
             <LinearLayout
                 android:id="@+id/toggleRightButton"
                 android:orientation="vertical"
-                android:layout_width="27dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="25dp"
+                android:layout_width="27sp"
+                android:layout_height="32sp"
+                android:layout_marginStart="25sp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_action_toggle_right" />
 
@@ -297,19 +296,19 @@
 
         <LinearLayout
             android:id="@+id/container_left_mid"
-            android:layout_width="200dp"
-            android:layout_height="400dp"
+            android:layout_width="200sp"
+            android:layout_height="400sp"
             android:orientation="horizontal"
             android:layout_alignStart="@+id/homeMsg"
-            android:layout_marginStart="330dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="330sp"
+            android:layout_marginTop="30sp"
             android:background="@drawable/translucent_containers">
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="27dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="25dp"
+                android:layout_width="27sp"
+                android:layout_height="32sp"
+                android:layout_marginStart="25sp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_action_toggle_right" />
 
@@ -322,32 +321,32 @@
         android:id="@+id/containers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="20sp"
         android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/container1"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
-            android:layout_marginStart="-125dp"
+            android:layout_width="200sp"
+            android:layout_height="300sp"
+            android:layout_marginStart="-125sp"
             android:background="@drawable/translucent_containers"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/toggleLeftButton"
-                android:layout_width="27dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="150dp"
-                android:layout_marginTop="120dp"
+                android:layout_width="27sp"
+                android:layout_height="32sp"
+                android:layout_marginStart="150sp"
+                android:layout_marginTop="120sp"
                 android:background="@drawable/ic_action_toggle_left" />
 
         </LinearLayout>
 
         <Button
             android:id="@+id/container2"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
-            android:layout_marginLeft="30dp"
+            android:layout_width="200sp"
+            android:layout_height="300sp"
+            android:layout_marginLeft="30sp"
             android:background="@drawable/translucent_containers"
             android:orientation="vertical">
 
@@ -355,18 +354,18 @@
 
         <LinearLayout
             android:id="@+id/container3"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
-            android:layout_marginLeft="30dp"
+            android:layout_width="200sp"
+            android:layout_height="300sp"
+            android:layout_marginLeft="30sp"
             android:background="@drawable/translucent_containers"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/toggleRightButton"
-                android:layout_width="27dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="120dp"
+                android:layout_width="27sp"
+                android:layout_height="32sp"
+                android:layout_marginStart="25sp"
+                android:layout_marginTop="120sp"
                 android:background="@drawable/ic_action_toggle_right" />
 
         </LinearLayout>
@@ -377,18 +376,18 @@
         android:id="@+id/header2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="-250dp"
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="-250sp"
         android:text="Growing Conditions"
         android:textColor="@color/white"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/growthEnvironment"
-        android:layout_width="500dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="-50dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="500sp"
+        android:layout_height="150sp"
+        android:layout_marginStart="-50sp"
+        android:layout_marginTop="20sp"
         android:background="@drawable/translucent_containers"
         android:orientation="vertical">
 
@@ -401,46 +400,46 @@
 
             <ImageView
                 android:id="@+id/temperatureIcon"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="50dp"
+                android:layout_width="70sp"
+                android:layout_height="70sp"
+                android:layout_marginStart="50sp"
                 android:src="@mipmap/ic_launcher_temperature1" />
 
             <TextView
                 android:id="@+id/temperature"
-                android:layout_width="70dp"
+                android:layout_width="70sp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="25sp"
                 android:text="Temp"
                 android:textColor="@color/white" />
 
             <ImageView
                 android:id="@+id/solutionIcon"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="-10dp"
+                android:layout_width="70sp"
+                android:layout_height="70sp"
+                android:layout_marginStart="-10sp"
                 android:src="@mipmap/ic_launcher_solution1" />
 
             <TextView
                 android:id="@+id/solution"
-                android:layout_width="100dp"
+                android:layout_width="100sp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="25sp"
                 android:text="Solution"
                 android:textColor="@color/white" />
 
             <ImageView
                 android:id="@+id/humidityIcon"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="-10dp"
+                android:layout_width="70sp"
+                android:layout_height="70sp"
+                android:layout_marginStart="-10sp"
                 android:src="@mipmap/ic_launcher_humidity1" />
 
             <TextView
                 android:id="@+id/humidity"
-                android:layout_width="70dp"
+                android:layout_width="70sp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="25sp"
                 android:text="Humidity"
                 android:textColor="@color/white" />
 
@@ -450,51 +449,51 @@
             android:id="@+id/growthRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-10dp"
+            android:layout_marginTop="-10sp"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/lightIcon"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="50dp"
+                android:layout_width="70sp"
+                android:layout_height="70sp"
+                android:layout_marginStart="50sp"
                 android:src="@mipmap/ic_launcher_light1" />
 
             <TextView
                 android:id="@+id/light"
-                android:layout_width="70dp"
+                android:layout_width="70sp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="25sp"
                 android:text="Light"
                 android:textColor="@color/white" />
 
             <ImageView
                 android:id="@+id/waterIcon"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="-10dp"
+                android:layout_width="70sp"
+                android:layout_height="70sp"
+                android:layout_marginStart="-10sp"
                 android:src="@mipmap/ic_launcher_water1" />
 
             <TextView
                 android:id="@+id/water"
-                android:layout_width="100dp"
+                android:layout_width="100sp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="25sp"
                 android:text="Water"
                 android:textColor="@color/white" />
 
             <ImageView
                 android:id="@+id/phIcon"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginStart="-10dp"
+                android:layout_width="70sp"
+                android:layout_height="70sp"
+                android:layout_marginStart="-10sp"
                 android:src="@mipmap/ic_launcher_ph1" />
 
             <TextView
                 android:id="@+id/ph"
-                android:layout_width="70dp"
+                android:layout_width="70sp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="25sp"
                 android:text="ph"
                 android:textColor="@color/white" />
 

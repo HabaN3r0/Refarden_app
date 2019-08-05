@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background"
-    android:padding="20dp"
+    android:padding="20sp"
     tools:context="kenneth.com.refardenapp.SignUpActivity">
 
 
@@ -14,12 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20sp">
 
         <Button
             android:id="@+id/backButton"
-            android:layout_width="20dp"
-            android:layout_height="25dp"
+            android:layout_width="20sp"
+            android:layout_height="25sp"
             android:layout_gravity="center"
             android:background="@drawable/ic_action_back" />
 
@@ -27,11 +27,11 @@
             android:id="@+id/createAccMsg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
+            android:layout_marginStart="14sp"
             android:layout_gravity="center"
             android:text="Create an Account"
             android:textColor="@color/white"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
 
     </LinearLayout>
 
@@ -40,7 +40,7 @@
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="16sp"
         android:text="Enter the email address to create your account"
         android:textColor="@color/white" />
 
@@ -48,9 +48,9 @@
         android:id="@+id/nameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="20dp"
-        android:paddingRight="20dp"
+        android:layout_marginTop="50sp"
+        android:layout_marginStart="20sp"
+        android:paddingRight="20sp"
         android:theme="@style/TextInputLayoutAppearance"
         app:errorEnabled="true">
 
@@ -69,8 +69,8 @@
         android:id="@+id/birthInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:paddingRight="20dp"
+        android:layout_marginStart="20sp"
+        android:paddingRight="20sp"
         android:theme="@style/TextInputLayoutAppearance"
         app:errorEnabled="true">
 
@@ -89,8 +89,8 @@
         android:id="@+id/emailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:paddingRight="20dp"
+        android:layout_marginStart="20sp"
+        android:paddingRight="20sp"
         android:theme="@style/TextInputLayoutAppearance"
         app:errorEnabled="true">
 
@@ -109,8 +109,8 @@
         android:id="@+id/passwordInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:paddingRight="20dp"
+        android:layout_marginStart="20sp"
+        android:paddingRight="20sp"
         android:theme="@style/TextInputLayoutAppearance"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true">
@@ -130,8 +130,8 @@
         android:id="@+id/confirmPasswordInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:paddingRight="20dp"
+        android:layout_marginStart="20sp"
+        android:paddingRight="20sp"
         android:theme="@style/TextInputLayoutAppearance"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true">
@@ -152,10 +152,10 @@
         android:id="@+id/confirmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="70sp"
         android:background="@drawable/transparent_bg_bordered_button"
-        android:paddingLeft="100dp"
-        android:paddingRight="100dp"
+        android:paddingLeft="100sp"
+        android:paddingRight="100sp"
         android:text="Confirm"
         android:textAllCaps="false"
         android:textColor="@color/white"

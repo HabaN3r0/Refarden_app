@@ -107,7 +107,7 @@ public class NotificationsItemActivity extends AppCompatActivity {
         mNotificationsItemProfileImage.setImageResource(plantImage);
         mNotificationsItemOwnerItem.setText(plantType);
         mNotificationsItemOwnerItemImage.setImageResource(plantImage);
-        mNotificationsItemRequesterHeader.setText("Plants from " + requesterName);
+//        mNotificationsItemRequesterHeader.setText("Plants from " + requesterName);
         mNotificationsItemRequesterItem.setText(plantsWanted);
         mNotificationsItemRequesterItemImage.setImageResource(plantImage);
         mNotificationsItemStar1.setImageResource(star1);

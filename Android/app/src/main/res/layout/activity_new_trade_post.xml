@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/background"
     android:fillViewport="true"
+    android:id="@+id/newPostScrollView"
     tools:context="kenneth.com.refardenapp.NewTradePostActivity">
 
     <LinearLayout
@@ -19,22 +20,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="-10dp"
-            android:padding="20dp">
+            android:layout_marginTop="-10sp"
+            android:padding="20sp">
 
             <LinearLayout
                 android:id="@+id/newPostBackButtonLinearLayout"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="-20dp"
+                android:layout_width="80sp"
+                android:layout_height="80sp"
+                android:layout_marginStart="-20sp"
                 android:orientation="horizontal"
                 android:layout_gravity="center">
 
                 <Button
                     android:id="@+id/newPostBackButton"
-                    android:layout_width="20dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_width="20sp"
+                    android:layout_height="25sp"
+                    android:layout_marginStart="20sp"
                     android:layout_gravity="center"
                     android:background="@drawable/ic_action_back" />
 
@@ -45,25 +46,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="-30dp"
+                android:layout_marginStart="-30sp"
                 android:text="New Post"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textColor="@color/white"/>
         </LinearLayout>
 
         <!--<LinearLayout-->
         <!--android:id="@+id/newPostProfile"-->
-        <!--android:layout_width="350dp"-->
-        <!--android:layout_height="100dp"-->
+        <!--android:layout_width="350sp"-->
+        <!--android:layout_height="100sp"-->
         <!--android:layout_gravity="center"-->
         <!--android:background="@drawable/translucent_containers"-->
         <!--android:orientation="horizontal"-->
-        <!--android:padding="20dp">-->
+        <!--android:padding="20sp">-->
 
         <!--<ImageView-->
         <!--android:id="@+id/newPostProfileImage"-->
-        <!--android:layout_width="50dp"-->
-        <!--android:layout_height="50dp"-->
+        <!--android:layout_width="50sp"-->
+        <!--android:layout_height="50sp"-->
         <!--android:layout_gravity="center"-->
         <!--android:src="@mipmap/ic_launcher_round" />-->
 
@@ -72,18 +73,18 @@
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_gravity="center"-->
-        <!--android:layout_marginStart="20dp"-->
+        <!--android:layout_marginStart="20sp"-->
         <!--android:text="Name"-->
-        <!--android:textSize="20dp" />-->
+        <!--android:textSize="20sp" />-->
 
         <!--</LinearLayout>-->
 
         <LinearLayout
             android:id="@+id/newPostPlantType"
-            android:layout_width="350dp"
-            android:layout_height="100dp"
+            android:layout_width="350sp"
+            android:layout_height="100sp"
             android:layout_gravity="center"
-            android:layout_marginTop="-20dp"
+            android:layout_marginTop="-20sp"
             android:background="@drawable/translucent_containers"
             android:orientation="horizontal">
 
@@ -92,8 +93,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20sp"
+                android:layout_marginEnd="20sp"
                 android:theme="@style/NewPostTextInputLayoutAppearance"
                 app:errorEnabled="true">
 
@@ -113,10 +114,10 @@
 
         <LinearLayout
             android:id="@+id/newPostPlantsWanted"
-            android:layout_width="350dp"
-            android:layout_height="100dp"
+            android:layout_width="350sp"
+            android:layout_height="100sp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="20sp"
             android:background="@drawable/translucent_containers"
             android:orientation="horizontal">
 
@@ -125,8 +126,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20sp"
+                android:layout_marginEnd="20sp"
                 android:theme="@style/NewPostTextInputLayoutAppearance"
                 app:errorEnabled="true">
 
@@ -147,13 +148,13 @@
 
         <LinearLayout
             android:id="@+id/newPostUpload"
-            android:layout_width="350dp"
-            android:layout_height="200dp"
+            android:layout_width="350sp"
+            android:layout_height="200sp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="20sp"
             android:background="@drawable/translucent_containers"
             android:orientation="horizontal"
-            android:padding="20dp">
+            android:padding="20sp">
 
 
             <LinearLayout
@@ -170,7 +171,7 @@
                     android:layout_gravity="center"
                     android:textColor="@color/grey"
                     android:text="Upload photo"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -178,22 +179,22 @@
                 android:id="@+id/newPostUploadButtons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="-240dp"
+                android:layout_marginStart="-240sp"
                 android:layout_gravity="center"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/newPostUploadCamera"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
                     android:layout_gravity="center"
                     android:background="@drawable/ic_camera" />
 
                 <Button
                     android:id="@+id/newPostUploadGallery"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="70dp"
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:layout_marginStart="70sp"
                     android:layout_gravity="center"
                     android:background="@drawable/ic_gallery"/>
 
@@ -203,29 +204,29 @@
                 android:id="@+id/newPostUploadDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="-230dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginStart="-230sp"
+                android:layout_marginBottom="20sp"
                 android:layout_gravity="bottom"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/newPostUploadCameraText"
-                    android:layout_width="50dp"
+                    android:layout_width="50sp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="@color/grey"
                     android:text="Camera"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/newPostUploadGalleryText"
-                    android:layout_width="50dp"
+                    android:layout_width="50sp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginStart="70dp"
+                    android:layout_marginStart="70sp"
                     android:textColor="@color/grey"
                     android:text="Gallery"
-                    android:textSize="10dp" />
+                    android:textSize="10sp" />
 
             </LinearLayout>
 
@@ -233,13 +234,13 @@
 
         <LinearLayout
             android:id="@+id/newPostDescription"
-            android:layout_width="350dp"
-            android:layout_height="150dp"
+            android:layout_width="350sp"
+            android:layout_height="150sp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="20sp"
             android:background="@drawable/translucent_containers"
             android:orientation="horizontal"
-            android:padding="20dp">
+            android:padding="20sp">
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/newPostDescriptionEditText"
@@ -265,16 +266,16 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/createNewPostFAB"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="175dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="70sp"
+            android:layout_height="70sp"
+            android:layout_marginStart="175sp"
+            android:layout_marginTop="20sp"
             android:src="@drawable/ic_add"
             app:backgroundTint="@color/brightgrey"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="450sp"
             android:orientation="horizontal">
 
         </LinearLayout>

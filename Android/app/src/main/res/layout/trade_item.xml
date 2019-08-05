@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="350dp"
+    android:layout_width="350sp"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:layout_marginStart="30dp"
-    app:cardCornerRadius="20dp"
+    android:layout_marginBottom="10sp"
+    android:layout_marginStart="30sp"
+    app:cardCornerRadius="20sp"
     android:backgroundTint="@color/lightgrey">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:padding="20dp">
+        android:layout_height="200sp"
+        android:padding="20sp">
 
         <TextView
             android:id="@+id/tradeTitle"
-            android:layout_width="150dp"
+            android:layout_width="150sp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:text="Plant Type"
             android:textColor="@color/brightgrey"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tradeDescription"
-            android:layout_width="180dp"
-            android:layout_height="70dp"
+            android:layout_width="180sp"
+            android:layout_height="70sp"
             android:layout_below="@+id/tradeTitle"
             android:text="Description"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/tradeReview"
-            android:layout_width="180dp"
+            android:layout_width="180sp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tradeDescription"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="20sp"
             android:text="See full review >"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <LinearLayout
             android:id="@+id/tradeIcons"
@@ -77,7 +77,7 @@
                 android:id="@+id/tradeDistIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="15sp"
                 android:src="@drawable/ic_location" />
 
             <TextView
@@ -86,16 +86,16 @@
                 android:layout_height="wrap_content"
                 android:text="1.3km"
                 android:textColor="@color/white"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
 
 
         <ImageView
             android:id="@+id/tradeImage"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="60dp"
+            android:layout_width="100sp"
+            android:layout_height="150sp"
+            android:layout_marginStart="60sp"
             android:layout_toEndOf="@+id/tradeTitle" />
 
     </RelativeLayout>

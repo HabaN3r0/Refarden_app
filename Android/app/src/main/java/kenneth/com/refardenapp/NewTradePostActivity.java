@@ -1,7 +1,9 @@
 package kenneth.com.refardenapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +11,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +62,7 @@ public class NewTradePostActivity extends AppCompatActivity {
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
 
+
         mAuth = FirebaseAuth.getInstance();
         mNewPostBackButtonLinearLayout = findViewById(R.id.newPostBackButtonLinearLayout);
         mNewPostBackButton = findViewById(R.id.newPostBackButton);
@@ -68,6 +74,12 @@ public class NewTradePostActivity extends AppCompatActivity {
         mNewPostUploadGallery = findViewById(R.id.newPostUploadGallery);
         mNewPostDescription = findViewById(R.id.newPostDescriptionEditText);
         mCreatePostAddButton = findViewById(R.id.createNewPostFAB);
+
+//        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+//        mNewPostDescription.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+        ScrollView sv = (ScrollView)findViewById(R.id.newPostScrollView);
+        sv.scrollTo(5, 10);
 
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -128,6 +140,7 @@ public class NewTradePostActivity extends AppCompatActivity {
 
         mCreatePostAddButton.setOnClickListener(
                 new View.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onClick(View v) {
                         uploadPost(myRef);
@@ -198,6 +211,7 @@ public class NewTradePostActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void uploadPost(DatabaseReference myRef) {
 
         if (!validatePlantType() | !validatePlantsWanted() | !validateDescription()) {
@@ -230,4 +244,6 @@ public class NewTradePostActivity extends AppCompatActivity {
                 Toast.LENGTH_LONG).show();
         finish();
     }
+
+
 }

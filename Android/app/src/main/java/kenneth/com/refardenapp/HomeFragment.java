@@ -462,11 +462,6 @@ public class HomeFragment extends Fragment {
                         }
                     }
                 }
-                Log.e(TAG, pot_levels.toString());
-                Log.e(TAG, pot_name.toString());
-                Log.e(TAG, pot_name.get(1));
-                Log.e(TAG, Integer.toString(plant_location_list.get(2)[0]));
-                Log.e(TAG, Integer.toString(plant_location_list.get(4)[0]));
 
                 ArrayList<Integer> listoflevel0 = new ArrayList<>();
                 ArrayList<Integer> listoflevel1 = new ArrayList<>();
@@ -2734,3 +2729,6 @@ public class HomeFragment extends Fragment {
         setPlantName(30);
     }
 }
+
+
+
