@@ -30,8 +30,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 /**
  * Created by 1002215 on 19/7/19.
@@ -95,13 +97,19 @@ public class HomeFragment extends Fragment {
 
     public int button_counter;
     public int internal_button_counter;
+    public int layout_counter = 0;
+    public int layout_big_counter = 0;
 
-    public List<Integer> pot_level = new ArrayList<>();
-    public List<int[]> plant_location_list = new ArrayList<>();
-    public List<String> pot_name = new ArrayList<>();
+    public ArrayList<Integer> pot_level = new ArrayList<>();
+    public ArrayList<int[]> plant_location_list = new ArrayList<>();
+    public ArrayList<String> pot_name = new ArrayList<>();
+    public ArrayList<ArrayList<Integer>> pot_levels = new ArrayList<>();
+//    public ArrayList<ArrayList<int[]>> plant_locations = new ArrayList<>();
+    public ArrayList<ArrayList<Integer>> plant_locations_x = new ArrayList<>();
+    public ArrayList<ArrayList<Integer>> plant_locations_y = new ArrayList<>();
+    public ArrayList<ArrayList<String>> pot_names = new ArrayList<>();
 
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
-
 
     private static final String TAG = "Home Fragment";
     private TextView textViewTemperature;
@@ -112,9 +120,11 @@ public class HomeFragment extends Fragment {
     private TextView textViewPh;
     private FirebaseAuth mAuth;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
         textViewTemperature = view.findViewById(R.id.temperature);
         textViewSolution = view.findViewById(R.id.solution);
@@ -231,10 +241,10 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        int wid = params.height;
+        int wid = params.width;
 
         lay_Lleft = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Lleft = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Lleft = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         params_Lleft.setMargins(0,0,0,0);
         lay_Lleft.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Lleft.setOrientation(LinearLayout.VERTICAL);
@@ -242,21 +252,21 @@ public class HomeFragment extends Fragment {
         lay_Lleft.setBackgroundResource(R.drawable.mini_small);
 
         lay_Lmid = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Lmid = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Lmid = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Lmid.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Lmid.setOrientation(LinearLayout.VERTICAL);
         lay_Lmid.setLayoutParams(params_Lmid);
         lay_Lmid.setBackgroundResource(R.drawable.mini_small);
 
         lay_Lright = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Lright = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Lright = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Lright.setOrientation(LinearLayout.VERTICAL);
         lay_Lright.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Lright.setLayoutParams(params_Lright);
         lay_Lright.setBackgroundResource(R.drawable.mini_small);
 
         lay_Mleft = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Mleft = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Mleft = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         params_Mleft.setMargins(0,0,0,0);
         lay_Mleft.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Mleft.setOrientation(LinearLayout.VERTICAL);
@@ -264,21 +274,21 @@ public class HomeFragment extends Fragment {
         lay_Mleft.setBackgroundResource(R.drawable.mini_small);
 
         lay_Mmid = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Mmid = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Mmid = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Mmid.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Mmid.setOrientation(LinearLayout.VERTICAL);
         lay_Mmid.setLayoutParams(params_Mmid);
         lay_Mmid.setBackgroundResource(R.drawable.mini_small);
 
         lay_Mright = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Mright = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Mright = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Mright.setOrientation(LinearLayout.VERTICAL);
         lay_Mright.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Mright.setLayoutParams(params_Mright);
         lay_Mright.setBackgroundResource(R.drawable.mini_small);
 
         lay_Rleft = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Rleft = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Rleft = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         params_Rleft.setMargins(0,0,0,0);
         lay_Rleft.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Rleft.setOrientation(LinearLayout.VERTICAL);
@@ -286,14 +296,14 @@ public class HomeFragment extends Fragment {
         lay_Rleft.setBackgroundResource(R.drawable.mini_small);
 
         lay_Rmid = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Rmid = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Rmid = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Rmid.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Rmid.setOrientation(LinearLayout.VERTICAL);
         lay_Rmid.setLayoutParams(params_Rmid);
         lay_Rmid.setBackgroundResource(R.drawable.mini_small);
 
         lay_Rright = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Rright = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Rright = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Rright.setOrientation(LinearLayout.VERTICAL);
         lay_Rright.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Rright.setLayoutParams(params_Rright);
@@ -418,6 +428,10 @@ public class HomeFragment extends Fragment {
                 pot_level.clear();
                 plant_location_list.clear();
                 pot_name.clear();
+                pot_levels.clear();
+                plant_locations_x.clear();
+                plant_locations_y.clear();
+                pot_names.clear();
 
 //                Log.v(TAG, pot_name.get(0));
 
@@ -447,22 +461,184 @@ public class HomeFragment extends Fragment {
                             plant_location_list.add(loc_vals);
                         }
                     }
+                }
+                Log.e(TAG, pot_levels.toString());
+                Log.e(TAG, pot_name.toString());
+                Log.e(TAG, pot_name.get(1));
+                Log.e(TAG, Integer.toString(plant_location_list.get(2)[0]));
+                Log.e(TAG, Integer.toString(plant_location_list.get(4)[0]));
 
+                ArrayList<Integer> listoflevel0 = new ArrayList<>();
+                ArrayList<Integer> listoflevel1 = new ArrayList<>();
+                ArrayList<Integer> listoflevel2 = new ArrayList<>();
+                ArrayList<Integer> listoflevel3 = new ArrayList<>();
+                ArrayList<Integer> listoflevel4 = new ArrayList<>();
+                ArrayList<Integer> listoflevel5 = new ArrayList<>();
+                ArrayList<Integer> listoflevel6 = new ArrayList<>();
+                ArrayList<Integer> listoflevel7 = new ArrayList<>();
+                ArrayList<Integer> listoflevel8 = new ArrayList<>();
+                ArrayList<Integer> listoflocationx0 = new ArrayList<>();
+                ArrayList<Integer> listoflocationx1 = new ArrayList<>();
+                ArrayList<Integer> listoflocationx2 = new ArrayList<>();
+                ArrayList<Integer> listoflocationx3 = new ArrayList<>();
+                ArrayList<Integer> listoflocationx4 = new ArrayList<>();
+                ArrayList<Integer> listoflocationx5 = new ArrayList<>();
+                ArrayList<Integer> listoflocationx6 = new ArrayList<>();
+                ArrayList<Integer> listoflocationx7 = new ArrayList<>();
+                ArrayList<Integer> listoflocationx8 = new ArrayList<>();
+                ArrayList<Integer> listoflocationy0 = new ArrayList<>();
+                ArrayList<Integer> listoflocationy1 = new ArrayList<>();
+                ArrayList<Integer> listoflocationy2 = new ArrayList<>();
+                ArrayList<Integer> listoflocationy3 = new ArrayList<>();
+                ArrayList<Integer> listoflocationy4 = new ArrayList<>();
+                ArrayList<Integer> listoflocationy5 = new ArrayList<>();
+                ArrayList<Integer> listoflocationy6 = new ArrayList<>();
+                ArrayList<Integer> listoflocationy7 = new ArrayList<>();
+                ArrayList<Integer> listoflocationy8 = new ArrayList<>();
+                ArrayList<String> listofname0 = new ArrayList<>();
+                ArrayList<String> listofname1 = new ArrayList<>();
+                ArrayList<String> listofname2 = new ArrayList<>();
+                ArrayList<String> listofname3 = new ArrayList<>();
+                ArrayList<String> listofname4 = new ArrayList<>();
+                ArrayList<String> listofname5 = new ArrayList<>();
+                ArrayList<String> listofname6 = new ArrayList<>();
+                ArrayList<String> listofname7 = new ArrayList<>();
+                ArrayList<String> listofname8 = new ArrayList<>();
 
+                plant_locations_x.add(listoflocationx0);
+                plant_locations_y.add(listoflocationy0);
+                pot_levels.add(listoflevel0);
+                pot_names.add(listofname0);
+                plant_locations_x.add(listoflocationx1);
+                plant_locations_y.add(listoflocationy1);
+                pot_levels.add(listoflevel1);
+                pot_names.add(listofname1);
+                plant_locations_x.add(listoflocationx2);
+                plant_locations_y.add(listoflocationy2);
+                pot_levels.add(listoflevel2);
+                pot_names.add(listofname2);
+                plant_locations_x.add(listoflocationx3);
+                plant_locations_y.add(listoflocationy3);
+                pot_levels.add(listoflevel3);
+                pot_names.add(listofname3);
+                plant_locations_x.add(listoflocationx4);
+                plant_locations_y.add(listoflocationy4);
+                pot_levels.add(listoflevel4);
+                pot_names.add(listofname4);
+                plant_locations_x.add(listoflocationx5);
+                plant_locations_y.add(listoflocationy5);
+                pot_levels.add(listoflevel5);
+                pot_names.add(listofname5);
+                plant_locations_x.add(listoflocationx6);
+                plant_locations_y.add(listoflocationy6);
+                pot_levels.add(listoflevel6);
+                pot_names.add(listofname6);
+                plant_locations_x.add(listoflocationx7);
+                plant_locations_y.add(listoflocationy7);
+                pot_levels.add(listoflevel7);
+                pot_names.add(listofname7);
+                plant_locations_x.add(listoflocationx8);
+                plant_locations_y.add(listoflocationy8);
+                pot_levels.add(listoflevel8);
+                pot_names.add(listofname8);
+
+                for (int i=0; i<plant_location_list.size(); i++){
+                    Log.e(TAG, Integer.toString(i));
+                    int column = plant_location_list.get(i)[0];
+                    Log.e(TAG, Integer.toString(column));
+                    switch(column){
+                        case 0:
+                            int[] locs0 = {plant_location_list.get(i)[0], plant_location_list.get(i)[1]};
+                            plant_locations_x.get(column).add(locs0[0]);
+                            plant_locations_y.get(column).add(locs0[1]);
+                            pot_names.get(column).add(pot_name.get(i));
+                            pot_levels.get(column).add(pot_level.get(i));
+                            Log.e(TAG, pot_levels.toString());
+                            break;
+                        case 1:
+                            int[] locs1 = {plant_location_list.get(i)[0], plant_location_list.get(i)[1]};
+                            plant_locations_x.get(column).add(locs1[0]);
+                            plant_locations_y.get(column).add(locs1[1]);
+                            pot_names.get(column).add(pot_name.get(i));
+                            pot_levels.get(column).add(pot_level.get(i));
+                            break;
+                        case 2:
+                            int[] locs2 = {plant_location_list.get(i)[0], plant_location_list.get(i)[1]};
+                            plant_locations_x.get(column).add(locs2[0]);
+                            plant_locations_y.get(column).add(locs2[1]);
+                            pot_names.get(column).add(pot_name.get(i));
+                            pot_levels.get(column).add(pot_level.get(i));
+                            break;
+                        case 3:
+                            int[] locs3 = {plant_location_list.get(i)[0], plant_location_list.get(i)[1]};
+                            plant_locations_x.get(column).add(locs3[0]);
+                            plant_locations_y.get(column).add(locs3[1]);
+                            pot_names.get(column).add(pot_name.get(i));
+                            pot_levels.get(column).add(pot_level.get(i));
+                            break;
+                        case 4:
+                            int[] locs4 = {plant_location_list.get(i)[0], plant_location_list.get(i)[1]};
+                            plant_locations_x.get(column).add(locs4[0]);
+                            plant_locations_y.get(column).add(locs4[1]);
+                            pot_names.get(column).add(pot_name.get(i));
+                            pot_levels.get(column).add(pot_level.get(i));
+                            break;
+                        case 5:
+                            int[] locs5 = {plant_location_list.get(i)[0], plant_location_list.get(i)[1]};
+                            plant_locations_x.get(column).add(locs5[0]);
+                            plant_locations_y.get(column).add(locs5[1]);
+                            pot_names.get(column).add(pot_name.get(i));
+                            pot_levels.get(column).add(pot_level.get(i));
+                            break;
+                        case 6:
+                            int[] locs6 = {plant_location_list.get(i)[0], plant_location_list.get(i)[1]};
+                            plant_locations_x.get(column).add(locs6[0]);
+                            plant_locations_y.get(column).add(locs6[1]);
+                            pot_names.get(column).add(pot_name.get(i));
+                            pot_levels.get(column).add(pot_level.get(i));
+                            break;
+                        case 7:
+                            int[] locs7 = {plant_location_list.get(i)[0], plant_location_list.get(i)[1]};
+                            plant_locations_x.get(column).add(locs7[0]);
+                            plant_locations_y.get(column).add(locs7[1]);
+                            pot_names.get(column).add(pot_name.get(i));
+                            pot_levels.get(column).add(pot_level.get(i));
+                            break;
+                        case 8:
+                            int[] locs8 = {plant_location_list.get(i)[0], plant_location_list.get(i)[1]};
+                            plant_locations_x.get(column).add(locs8[0]);
+                            plant_locations_y.get(column).add(locs8[1]);
+                            pot_names.get(column).add(pot_name.get(i));
+                            pot_levels.get(column).add(pot_level.get(i));
+                            break;
+                    }
                 }
 
-                Log.w(TAG, "View is: " + view);
-                Log.w(TAG, "Activity is: " + getActivity());
+                Log.e(TAG, plant_locations_x.toString());
+                Log.e(TAG, plant_locations_y.toString());
+
+                Log.e(TAG, pot_levels.toString());
+//                Log.e(TAG, pot_names.toString());
+//                Log.e(TAG, plant_locations.toString());
+//                for (int i = 0; i < plant_locations.size(); i++) {
+//                    for(int j =0; j<plant_locations.get(i).size(); j++){
+//                        Log.e(TAG, "[" + plant_locations.get(i).get(j)[0] + "," + plant_locations.get(i).get(j)[1] + "]");
+//
+//                    }
+//                }
+
 
                 if (getActivity() == null) {
                 } else {
                     Log.w(TAG, "Activity is:  " + getActivity());
-                    assignPotBigL();
+                    layout_counter=0;
+//                    assignPotBigL();
                     assignPotBigM();
-                    assignPotBigR();
-                    assignPotL();
-                    assignPotM();
-                    assignPotR();
+//                    assignPotBigR();
+//                    assignPotL();
+//                    assignPotM();
+//                    assignPotR();
+                    assignPotM1();
                 }
 
             }
@@ -566,7 +742,7 @@ public class HomeFragment extends Fragment {
                 // basic pot
                 big_pot_list[i] = new LinearLayout(this.getActivity());
                 LinearLayout.LayoutParams pot_params = new LinearLayout.LayoutParams(70, 200);
-                pot_params.setMargins(100, 0, 0, 0);
+                pot_params.setMargins(100, 0,0, 0);
                 big_pot_list[i].setOrientation(LinearLayout.VERTICAL);
                 big_pot_list[i].setLayoutParams(pot_params);
                 big_pot_list[i].setHorizontalGravity(Gravity.BOTTOM);
@@ -574,7 +750,7 @@ public class HomeFragment extends Fragment {
 
                 //pot level
                 big_pot_progress[i] = new LinearLayout(this.getActivity());
-                big_pot_progress[i].setId(808000 + i);
+                //big_pot_progress[i].setId(808000 + i);
                 int progress_height = pot_level.get(i) * 2;
                 LinearLayout.LayoutParams pot_progress_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, progress_height);
                 if (pot_level.get(i) < 20) {
@@ -706,54 +882,6 @@ public class HomeFragment extends Fragment {
                             }
                         });
                         break;
-                    case 10:
-                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                setPlantName10();
-                            }
-                        });
-                        break;
-                    case 11:
-                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                setPlantName11();
-                            }
-                        });
-                        break;
-                    case 12:
-                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                setPlantName12();
-                            }
-                        });
-                        break;
-                    case 13:
-                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                setPlantName13();
-                            }
-                        });
-                        break;
-                    case 14:
-                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                setPlantName14();
-                            }
-                        });
-                        break;
-                    case 15:
-                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                setPlantName15();
-                            }
-                        });
-                        break;
                     default:
                         Log.v(TAG, "check button counter");
                         break;
@@ -813,7 +941,7 @@ public class HomeFragment extends Fragment {
 
                 //pot level
                 pot_progress[i] = new LinearLayout(this.getActivity());
-                pot_progress[i].setId(808000 + i);
+                //pot_progress[i].setId(808000 + i);
                 int progress_height = pot_level.get(i) * 2;
                 LinearLayout.LayoutParams pot_progress_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, progress_height);
                 if (pot_level.get(i) < 20) {
@@ -909,7 +1037,7 @@ public class HomeFragment extends Fragment {
 
                 //pot level
                 big_pot_progress[i] = new LinearLayout(this.getActivity());
-                big_pot_progress[i].setId(808000 + i);
+                //big_pot_progress[i].setId(808000 + i);
                 int progress_height = pot_level.get(i) * 2;
                 LinearLayout.LayoutParams pot_progress_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, progress_height);
                 if (pot_level.get(i) < 20) {
@@ -1129,83 +1257,281 @@ public class HomeFragment extends Fragment {
                             }
                         });
                         break;
-                    case 21:
+                    default:
+                        Log.v(TAG, "check button counter");
+                        break;
+
+
+                }
+
+
+                big_pot_list[i].addView(big_pot_progress[i]);
+
+
+                big_pot_wrapper[i].addView(big_pot_list[i]);
+                big_pot_wrapper[i].addView(big_pot_text[i]);
+
+                if (plant_location_list.get(i)[0] == 3) {
+                    lay_big_Mleft.addView(big_pot_wrapper[i]);
+                    lay_big_Mleft.addView(big_button_list[i]);
+                } else if (plant_location_list.get(i)[0] == 4) {
+                    lay_big_Mmid.addView(big_pot_wrapper[i]);
+                    lay_big_Mmid.addView(big_button_list[i]);
+                } else if (plant_location_list.get(i)[0] == 5) {
+                    lay_big_Mright.addView(big_pot_wrapper[i]);
+                    lay_big_Mright.addView(big_button_list[i]);
+                }
+
+            }
+        }
+
+    }
+
+    public void assignPotBigM1(){
+
+        lay_big_Mleft.removeAllViews();
+        lay_big_Mmid.removeAllViews();
+        lay_big_Mright.removeAllViews();
+
+        for(int i = 0; i < plant_location_list.size(); i++) {
+            if (plant_location_list.get(i)[0] == 3 || plant_location_list.get(i)[0] == 4 || plant_location_list.get(i)[0] == 5) {
+
+                //full pot + text
+                big_pot_wrapper[i] = new LinearLayout(this.getActivity());
+                LinearLayout.LayoutParams params_wrapper = new LinearLayout.LayoutParams(120, 200);
+                params_wrapper.setMargins(30, 100 + plant_location_list.get(i)[1], 0, 0);
+                big_pot_wrapper[i].setOrientation(LinearLayout.HORIZONTAL);
+                big_pot_wrapper[i].setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
+                big_pot_wrapper[i].setLayoutParams(params_wrapper);
+
+                // basic pot
+                big_pot_list[i] = new LinearLayout(this.getActivity());
+                LinearLayout.LayoutParams pot_params = new LinearLayout.LayoutParams(70, 200);
+                pot_params.setMargins(100, 0, 0, 0);
+                big_pot_list[i].setOrientation(LinearLayout.VERTICAL);
+                big_pot_list[i].setLayoutParams(pot_params);
+                big_pot_list[i].setHorizontalGravity(Gravity.BOTTOM);
+                big_pot_list[i].setBackgroundResource(R.drawable.transparent_bg_pot);
+
+                //pot level
+                big_pot_progress[i] = new LinearLayout(this.getActivity());
+                //big_pot_progress[i].setId(808000 + i);
+                int progress_height = pot_level.get(i) * 2;
+                LinearLayout.LayoutParams pot_progress_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, progress_height);
+                if (pot_level.get(i) < 20) {
+                    pot_progress_params.setMargins(0, 0, 0, 0);
+                } else {
+                    pot_progress_params.setMargins(0, 200 - progress_height, 0, 0);
+                }
+                big_pot_progress[i].setLayoutParams(pot_progress_params);
+                int draw_value = assignBg(pot_level.get(i));
+                big_pot_progress[i].setBackgroundResource(draw_value);
+
+
+                //pot text
+                big_pot_text[i] = new TextView(this.getActivity());
+//            pot_text[i].setId(707070 + i);
+                //rotate text and shift back
+                RotateAnimation rAnim = (RotateAnimation) AnimationUtils.loadAnimation(this.getActivity(), R.anim.myanim);
+                rAnim.setFillAfter(true);
+                big_pot_text[i].setAnimation(rAnim);
+                RelativeLayout.LayoutParams text_params = new RelativeLayout.LayoutParams(150, 30);
+                text_params.setMargins(0, 200, 0, 0);
+                big_pot_text[i].setLayoutParams(text_params);
+                big_pot_text[i].setText(pot_name.get(i));
+                big_pot_text[i].setTextSize(10);
+                big_pot_text[i].setGravity(Gravity.CENTER);
+
+                // percentage text
+                big_percentage_text[i] = new TextView(this.getActivity());
+                RelativeLayout.LayoutParams percentage_params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, 30);
+                String percentages = Integer.toString(pot_level.get(i));
+                big_percentage_text[i].setText(percentages + "%");
+                big_percentage_text[i].setTextSize(8);
+                big_percentage_text[i].setGravity(Gravity.BOTTOM);
+
+
+                if (pot_level.get(i) < 20) {
+                    percentage_params.setMargins(10, 170 - progress_height, 0, 0);
+                    big_percentage_text[i].setLayoutParams(percentage_params);
+                    big_pot_list[i].addView(big_percentage_text[i]);
+                } else {
+                    percentage_params.setMargins(10, progress_height - 50, 0, 0);
+                    big_percentage_text[i].setLayoutParams(percentage_params);
+                    big_pot_progress[i].addView(big_percentage_text[i]);
+                }
+
+                button_counter = i;
+                big_button_list[i] = new LinearLayout(this.getActivity());
+                LinearLayout.LayoutParams big_button_params = new LinearLayout.LayoutParams(70, 70);
+                big_button_list[i].setLayoutParams(big_button_params);
+                big_button_list[i].setBackgroundResource(R.drawable.edit);
+                switch(button_counter){
+                    case 0:
                         big_button_list[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                setPlantName21();
+                                setPlantName0();
                             }
                         });
                         break;
-                    case 22:
+                    case 1:
                         big_button_list[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                setPlantName22();
+                                setPlantName1();
                             }
                         });
                         break;
-                    case 23:
+                    case 2:
                         big_button_list[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                setPlantName23();
+                                setPlantName2();
                             }
                         });
                         break;
-                    case 24:
+                    case 3:
                         big_button_list[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                setPlantName24();
+                                setPlantName3();
                             }
                         });
                         break;
-                    case 25:
+                    case 4:
                         big_button_list[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                setPlantName25();
+                                setPlantName4();
                             }
                         });
                         break;
-                    case 26:
+                    case 5:
                         big_button_list[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                setPlantName26();
+                                setPlantName5();
                             }
                         });
                         break;
-                    case 27:
+                    case 6:
                         big_button_list[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                setPlantName27();
+                                setPlantName6();
                             }
                         });
                         break;
-                    case 28:
+                    case 7:
                         big_button_list[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                setPlantName28();
+                                setPlantName7();
                             }
                         });
                         break;
-                    case 29:
+                    case 8:
                         big_button_list[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                setPlantName29();
+                                setPlantName8();
                             }
                         });
                         break;
-                    case 30:
+                    case 9:
                         big_button_list[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                setPlantName30();
+                                setPlantName9();
+                            }
+                        });
+                        break;
+                    case 10:
+                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setPlantName10();
+                            }
+                        });
+                        break;
+                    case 11:
+                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setPlantName11();
+                            }
+                        });
+                        break;
+                    case 12:
+                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setPlantName12();
+                            }
+                        });
+                        break;
+                    case 13:
+                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setPlantName13();
+                            }
+                        });
+                        break;
+                    case 14:
+                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setPlantName14();
+                            }
+                        });
+                        break;
+                    case 15:
+                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setPlantName15();
+                            }
+                        });
+                        break;
+                    case 16:
+                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setPlantName16();
+                            }
+                        });
+                        break;
+                    case 17:
+                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setPlantName17();
+                            }
+                        });
+                        break;
+                    case 18:
+                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setPlantName18();
+                            }
+                        });
+                        break;
+                    case 19:
+                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setPlantName19();
+                            }
+                        });
+                        break;
+                    case 20:
+                        big_button_list[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                setPlantName20();
                             }
                         });
                         break;
@@ -1239,6 +1565,415 @@ public class HomeFragment extends Fragment {
 
     }
 
+    public void assignPotM1(){
+
+        lay_Mleft.removeAllViews();
+        lay_Mmid.removeAllViews();
+        lay_Mright.removeAllViews();
+
+        int counter3, counter4, counter5;
+        counter3 = counter4 = counter5 = 0;
+        int pot31loc = 0;
+
+        ArrayList<Integer> tempx = new ArrayList<>();
+        ArrayList<Integer> templevel = new ArrayList<>();
+        ArrayList<String> tempname= new ArrayList<>();
+
+        int _counter = plant_locations_y.get(3).size();
+        Log.e(TAG, plant_locations_y.get(3).toString());
+        for(int i=0; i<_counter;i++){
+            int min = plant_locations_y.get(3).indexOf(Collections.min(plant_locations_y.get(3)));
+            tempx.add(plant_locations_y.get(3).get(min));
+            templevel.add(pot_levels.get(3).get(min));
+            tempname.add(pot_names.get(3).get(min));
+            plant_locations_y.get(3).remove(min);
+            pot_levels.get(3).remove(min);
+            pot_names.get(3).remove(min);
+
+        }
+
+        for(int i=0; i<tempx.size();i++) {
+            plant_locations_y.get(3).add(tempx.get(i));
+            pot_names.get(3).add(tempname.get(i));
+            pot_levels.get(3).add(templevel.get(i));
+        }
+
+        Log.e(TAG, plant_locations_y.toString());
+        Log.e(TAG, pot_names.toString());
+
+        for(int i = 0; i < plant_locations_x.get(3).size(); i++) {
+            //full pot + text
+            pot_wrapper[layout_counter] = new LinearLayout(this.getActivity());
+            LinearLayout.LayoutParams params_wrapper = new LinearLayout.LayoutParams(120, 200);
+
+            if(plant_locations_x.get(3).size() == 1){
+                int locs = plant_locations_y.get(3).get(i);
+                pot31loc = locs;
+                switch(locs){
+                    case 0:
+                        params_wrapper.setMargins(25, 25, 0, 0);
+                        break;
+                    case 1:
+                        params_wrapper.setMargins(25, 100, 0, 0);
+                        break;
+                    case 2:
+                        params_wrapper.setMargins(25, 170, 0, 0);
+                        break;
+                    case 3:
+                        params_wrapper.setMargins(25, 250, 0, 0);
+                        break;
+                    case 4:
+                        params_wrapper.setMargins(25, 320, 0, 0);
+                        break;
+                    case 5:
+                        params_wrapper.setMargins(25, 400, 0, 0);
+                        break;
+                    case 6:
+                        params_wrapper.setMargins(25, 470, 0, 0);
+                        break;
+                    case 7:
+                        params_wrapper.setMargins(25, 550, 0, 0);
+                        break;
+                }
+            }else if(plant_locations_x.get(3).size() == 2){
+                if(counter3 == 0) {
+                    int locs = plant_locations_y.get(3).get(i);
+                    pot31loc = locs;
+                    switch (locs) {
+                        case 0:
+                            params_wrapper.setMargins(25, 25, 0, 0);
+                            break;
+                        case 1:
+                            params_wrapper.setMargins(25, 100, 0, 0);
+                            break;
+                        case 2:
+                            params_wrapper.setMargins(25, 175, 0, 0);
+                            break;
+                        case 3:
+                            params_wrapper.setMargins(25, 250, 0, 0);
+                            break;
+                        case 4:
+                            params_wrapper.setMargins(25, 325, 0, 0);
+                            break;
+                        case 5:
+                            params_wrapper.setMargins(25, 400, 0, 0);
+                            break;
+                        case 6:
+                            params_wrapper.setMargins(25, 475, 0, 0);
+                            break;
+                        case 7:
+                            params_wrapper.setMargins(25, 550, 0, 0);
+                            break;
+                    }
+                }else if(counter3 == 1){
+                    int locs = plant_locations_y.get(3).get(i);
+                    switch(pot31loc){
+                        case 0:
+                            if(locs <= 3){
+                                params_wrapper.setMargins(25, 25, 0, 0);
+                            }else if(locs == 4){
+                                params_wrapper.setMargins(25, 100, 0, 0);
+                            }else if(locs == 5){
+                                params_wrapper.setMargins(25, 175, 0, 0);
+                            }else if(locs == 6){
+                                params_wrapper.setMargins(25, 250, 0, 0);
+                            }else if(locs == 7){
+                                params_wrapper.setMargins(25, 325, 0, 0);
+                            }
+                            break;
+                        case 1:
+                            if(locs <= 4){
+                                params_wrapper.setMargins(25, 25, 0, 0);
+                            }else if(locs == 5){
+                                params_wrapper.setMargins(25, 100, 0, 0);
+                            }else if(locs == 6){
+                                params_wrapper.setMargins(25, 175, 0, 0);
+                            }else if(locs == 7){
+                                params_wrapper.setMargins(25, 250, 0, 0);
+                            }
+                            break;
+                        case 2:
+                            if(locs <= 5){
+                                params_wrapper.setMargins(25, 25, 0, 0);
+                            }else if(locs == 6){
+                                params_wrapper.setMargins(25, 100, 0, 0);
+                            }else if(locs == 7){
+                                params_wrapper.setMargins(25, 175, 0, 0);
+                            }
+                            break;
+                        case 3:
+                            if(locs <= 6){
+                                params_wrapper.setMargins(25, 25, 0, 0);
+                            }else if(locs == 7) {
+                                params_wrapper.setMargins(25, 100, 0, 0);
+                            }
+                            break;
+                        case 4:
+                            params_wrapper.setMargins(25, 25, 0, 0);
+                            break;
+                    }
+                }
+            }
+            else if(plant_locations_x.get(3).size() == 3) {
+                if(counter3 == 0){
+                    params_wrapper.setMargins(25, 30, 0, 0);
+                }
+                else if(counter3 == 1){
+                    params_wrapper.setMargins(25, 40, 0, 0);
+                }
+                else if(counter3 == 2){
+                    params_wrapper.setMargins(25, 80, 0, 0);
+                }
+
+            }
+
+            pot_wrapper[layout_counter].setOrientation(LinearLayout.HORIZONTAL);
+            pot_wrapper[layout_counter].setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
+            pot_wrapper[layout_counter].setLayoutParams(params_wrapper);
+
+            // basic pot
+            pot_list[layout_counter] = new LinearLayout(this.getActivity());
+            LinearLayout.LayoutParams pot_params = new LinearLayout.LayoutParams(70, 200);
+            pot_params.setMargins(100, 0, 0, 0);
+            pot_list[layout_counter].setOrientation(LinearLayout.VERTICAL);
+            pot_list[layout_counter].setLayoutParams(pot_params);
+            pot_list[layout_counter].setHorizontalGravity(Gravity.BOTTOM);
+            pot_list[layout_counter].setBackgroundResource(R.drawable.transparent_bg_pot);
+
+            //pot level
+            pot_progress[layout_counter] = new LinearLayout(this.getActivity());
+            //pot_progress[i].setId(808000 + i);
+            int progress_height = pot_levels.get(3).get(i) * 2;
+//            int progress_height = pot_level.get(layout_counter) * 2;
+            LinearLayout.LayoutParams pot_progress_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, progress_height);
+            if (pot_levels.get(3).get(i) < 20) {
+                pot_progress_params.setMargins(0, 0, 0, 0);
+            } else {
+                pot_progress_params.setMargins(0, 200 - progress_height, 0, 0);
+            }
+            pot_progress[layout_counter].setLayoutParams(pot_progress_params);
+            int draw_value = assignBg(pot_levels.get(3).get(i));
+            pot_progress[layout_counter].setBackgroundResource(draw_value);
+
+
+            //pot text
+            pot_text[layout_counter] = new TextView(this.getActivity());
+//            pot_text[i].setId(707070 + i);
+            //rotate text and shift back
+            RotateAnimation rAnim = (RotateAnimation) AnimationUtils.loadAnimation(this.getActivity(), R.anim.myanim);
+            rAnim.setFillAfter(true);
+            pot_text[layout_counter].setAnimation(rAnim);
+            RelativeLayout.LayoutParams text_params = new RelativeLayout.LayoutParams(150, 30);
+//            text_params.addRule(RelativeLayout.ABOVE, 808000 + i);
+//            text_params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+            text_params.setMargins(0, 200, 0, 0);
+            pot_text[layout_counter].setLayoutParams(text_params);
+            pot_text[layout_counter].setText(pot_names.get(3).get(i));
+            pot_text[layout_counter].setTextSize(10);
+            pot_text[layout_counter].setGravity(Gravity.CENTER);
+
+            // percentage text
+            percentage_text[layout_counter] = new TextView(this.getActivity());
+            RelativeLayout.LayoutParams percentage_params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, 30);
+            String percentages = Integer.toString(pot_levels.get(3).get(i));
+            percentage_text[layout_counter].setText(percentages + "%");
+            percentage_text[layout_counter].setTextSize(8);
+            percentage_text[layout_counter].setGravity(Gravity.BOTTOM);
+
+
+            if (pot_levels.get(3).get(i) < 20) {
+                percentage_params.setMargins(10, 170 - progress_height, 0, 0);
+                percentage_text[layout_counter].setLayoutParams(percentage_params);
+                pot_list[layout_counter].addView(percentage_text[layout_counter]);
+            } else {
+                percentage_params.setMargins(10, progress_height - 50, 0, 0);
+                percentage_text[layout_counter].setLayoutParams(percentage_params);
+                pot_progress[layout_counter].addView(percentage_text[layout_counter]);
+            }
+
+            pot_list[layout_counter].addView(pot_progress[layout_counter]);
+
+
+            pot_wrapper[layout_counter].addView(pot_list[layout_counter]);
+            pot_wrapper[layout_counter].addView(pot_text[layout_counter]);
+
+            lay_Mleft.addView(pot_wrapper[layout_counter]);
+
+            layout_counter+=1;
+            counter3+=1;
+
+        }
+
+
+        for(int i = 0; i < plant_locations_x.get(4).size(); i++) {
+
+            //full pot + text
+            pot_wrapper[layout_counter] = new LinearLayout(this.getActivity());
+            LinearLayout.LayoutParams params_wrapper = new LinearLayout.LayoutParams(120, 200);
+            params_wrapper.setMargins(25, 30 + plant_location_list.get(i)[1], 0, 0);
+            pot_wrapper[layout_counter].setOrientation(LinearLayout.HORIZONTAL);
+            pot_wrapper[layout_counter].setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
+            pot_wrapper[layout_counter].setLayoutParams(params_wrapper);
+//            pot_wrapper[i].setBackgroundResource(R.drawable.background);
+
+            // basic pot
+            pot_list[layout_counter] = new LinearLayout(this.getActivity());
+            LinearLayout.LayoutParams pot_params = new LinearLayout.LayoutParams(70, 200);
+            pot_params.setMargins(100, 0, 0, 0);
+            pot_list[layout_counter].setOrientation(LinearLayout.VERTICAL);
+            pot_list[layout_counter].setLayoutParams(pot_params);
+            pot_list[layout_counter].setHorizontalGravity(Gravity.BOTTOM);
+            pot_list[layout_counter].setBackgroundResource(R.drawable.transparent_bg_pot);
+
+            //pot level
+            pot_progress[layout_counter] = new LinearLayout(this.getActivity());
+            //pot_progress[i].setId(808000 + i);
+            int progress_height = pot_levels.get(4).get(i) * 2;
+//            int progress_height = pot_level.get(layout_counter) * 2;
+            LinearLayout.LayoutParams pot_progress_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, progress_height);
+            if (pot_levels.get(4).get(i) < 20) {
+                pot_progress_params.setMargins(0, 0, 0, 0);
+            } else {
+                pot_progress_params.setMargins(0, 200 - progress_height, 0, 0);
+            }
+            pot_progress[layout_counter].setLayoutParams(pot_progress_params);
+            int draw_value = assignBg(pot_levels.get(4).get(i));
+            pot_progress[layout_counter].setBackgroundResource(draw_value);
+
+
+            //pot text
+            pot_text[layout_counter] = new TextView(this.getActivity());
+//            pot_text[i].setId(707070 + i);
+            //rotate text and shift back
+            RotateAnimation rAnim = (RotateAnimation) AnimationUtils.loadAnimation(this.getActivity(), R.anim.myanim);
+            rAnim.setFillAfter(true);
+            pot_text[layout_counter].setAnimation(rAnim);
+            RelativeLayout.LayoutParams text_params = new RelativeLayout.LayoutParams(150, 30);
+//            text_params.addRule(RelativeLayout.ABOVE, 808000 + i);
+//            text_params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+            text_params.setMargins(0, 200, 0, 0);
+            pot_text[layout_counter].setLayoutParams(text_params);
+            pot_text[layout_counter].setText(pot_names.get(4).get(i));
+            pot_text[layout_counter].setTextSize(10);
+            pot_text[layout_counter].setGravity(Gravity.CENTER);
+
+            // percentage text
+            percentage_text[layout_counter] = new TextView(this.getActivity());
+            RelativeLayout.LayoutParams percentage_params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, 30);
+            String percentages = Integer.toString(pot_levels.get(4).get(i));
+            percentage_text[layout_counter].setText(percentages + "%");
+            percentage_text[layout_counter].setTextSize(8);
+            percentage_text[layout_counter].setGravity(Gravity.BOTTOM);
+
+
+            if (pot_levels.get(4).get(i) < 20) {
+                percentage_params.setMargins(10, 170 - progress_height, 0, 0);
+                percentage_text[layout_counter].setLayoutParams(percentage_params);
+                pot_list[layout_counter].addView(percentage_text[layout_counter]);
+            } else {
+                percentage_params.setMargins(10, progress_height - 50, 0, 0);
+                percentage_text[layout_counter].setLayoutParams(percentage_params);
+                pot_progress[layout_counter].addView(percentage_text[layout_counter]);
+            }
+
+            pot_list[layout_counter].addView(pot_progress[layout_counter]);
+
+
+            pot_wrapper[layout_counter].addView(pot_list[layout_counter]);
+            pot_wrapper[layout_counter].addView(pot_text[layout_counter]);
+
+            lay_Mmid.addView(pot_wrapper[layout_counter]);
+
+            layout_counter+=1;
+            counter4+=1;
+
+        }
+
+        for(int i = 0; i < plant_locations_x.get(5).size(); i++) {
+
+            //full pot + text
+            pot_wrapper[layout_counter] = new LinearLayout(this.getActivity());
+            LinearLayout.LayoutParams params_wrapper = new LinearLayout.LayoutParams(120, 200);
+            params_wrapper.setMargins(25, 30 + plant_location_list.get(i)[1], 0, 0);
+            pot_wrapper[layout_counter].setOrientation(LinearLayout.HORIZONTAL);
+            pot_wrapper[layout_counter].setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
+            pot_wrapper[layout_counter].setLayoutParams(params_wrapper);
+//            pot_wrapper[i].setBackgroundResource(R.drawable.background);
+
+            // basic pot
+            pot_list[layout_counter] = new LinearLayout(this.getActivity());
+            LinearLayout.LayoutParams pot_params = new LinearLayout.LayoutParams(70, 200);
+            pot_params.setMargins(100, 0, 0, 0);
+            pot_list[layout_counter].setOrientation(LinearLayout.VERTICAL);
+            pot_list[layout_counter].setLayoutParams(pot_params);
+            pot_list[layout_counter].setHorizontalGravity(Gravity.BOTTOM);
+            pot_list[layout_counter].setBackgroundResource(R.drawable.transparent_bg_pot);
+
+            //pot level
+            pot_progress[layout_counter] = new LinearLayout(this.getActivity());
+            //pot_progress[i].setId(808000 + i);
+            int progress_height = pot_levels.get(5).get(i) * 2;
+//            int progress_height = pot_level.get(layout_counter) * 2;
+            LinearLayout.LayoutParams pot_progress_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, progress_height);
+            if (pot_levels.get(5).get(i) < 20) {
+                pot_progress_params.setMargins(0, 0, 0, 0);
+            } else {
+                pot_progress_params.setMargins(0, 200 - progress_height, 0, 0);
+            }
+            pot_progress[layout_counter].setLayoutParams(pot_progress_params);
+            int draw_value = assignBg(pot_levels.get(5).get(i));
+            pot_progress[layout_counter].setBackgroundResource(draw_value);
+
+
+            //pot text
+            pot_text[layout_counter] = new TextView(this.getActivity());
+//            pot_text[i].setId(707070 + i);
+            //rotate text and shift back
+            RotateAnimation rAnim = (RotateAnimation) AnimationUtils.loadAnimation(this.getActivity(), R.anim.myanim);
+            rAnim.setFillAfter(true);
+            pot_text[layout_counter].setAnimation(rAnim);
+            RelativeLayout.LayoutParams text_params = new RelativeLayout.LayoutParams(150, 30);
+//            text_params.addRule(RelativeLayout.ABOVE, 808000 + i);
+//            text_params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+            text_params.setMargins(0, 200, 0, 0);
+            pot_text[layout_counter].setLayoutParams(text_params);
+            pot_text[layout_counter].setText(pot_names.get(5).get(i));
+            pot_text[layout_counter].setTextSize(10);
+            pot_text[layout_counter].setGravity(Gravity.CENTER);
+
+            // percentage text
+            percentage_text[layout_counter] = new TextView(this.getActivity());
+            RelativeLayout.LayoutParams percentage_params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, 30);
+            String percentages = Integer.toString(pot_levels.get(5).get(i));
+            percentage_text[layout_counter].setText(percentages + "%");
+            percentage_text[layout_counter].setTextSize(8);
+            percentage_text[layout_counter].setGravity(Gravity.BOTTOM);
+
+
+            if (pot_levels.get(5).get(i) < 20) {
+                percentage_params.setMargins(10, 170 - progress_height, 0, 0);
+                percentage_text[layout_counter].setLayoutParams(percentage_params);
+                pot_list[layout_counter].addView(percentage_text[layout_counter]);
+            } else {
+                percentage_params.setMargins(10, progress_height - 50, 0, 0);
+                percentage_text[layout_counter].setLayoutParams(percentage_params);
+                pot_progress[layout_counter].addView(percentage_text[layout_counter]);
+            }
+
+            pot_list[layout_counter].addView(pot_progress[layout_counter]);
+
+
+            pot_wrapper[layout_counter].addView(pot_list[layout_counter]);
+            pot_wrapper[layout_counter].addView(pot_text[layout_counter]);
+
+            lay_Mright.addView(pot_wrapper[layout_counter]);
+
+            layout_counter+=1;
+            counter5+=1;
+
+        }
+
+    }
 
     public void assignPotM(){
 
@@ -1269,7 +2004,7 @@ public class HomeFragment extends Fragment {
 
                 //pot level
                 pot_progress[i] = new LinearLayout(this.getActivity());
-                pot_progress[i].setId(808000 + i);
+                //pot_progress[i].setId(808000 + i);
                 int progress_height = pot_level.get(i) * 2;
                 LinearLayout.LayoutParams pot_progress_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, progress_height);
                 if (pot_level.get(i) < 20) {
@@ -1364,7 +2099,7 @@ public class HomeFragment extends Fragment {
 
                 //pot level
                 big_pot_progress[i] = new LinearLayout(this.getActivity());
-                big_pot_progress[i].setId(808000 + i);
+                //big_pot_progress[i].setId(808000 + i);
                 int progress_height = pot_level.get(i) * 2;
                 LinearLayout.LayoutParams pot_progress_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, progress_height);
                 if (pot_level.get(i) < 20) {
@@ -1723,7 +2458,7 @@ public class HomeFragment extends Fragment {
 
                 //pot level
                 pot_progress[i] = new LinearLayout(this.getActivity());
-                pot_progress[i].setId(808000 + i);
+                //pot_progress[i].setId(808000 + i);
                 int progress_height = pot_level.get(i) * 2;
                 LinearLayout.LayoutParams pot_progress_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, progress_height);
                 if (pot_level.get(i) < 20) {
@@ -1860,8 +2595,19 @@ public class HomeFragment extends Fragment {
                 lay_big_name.setVisibility(View.INVISIBLE);
 
                 set_name_text.getText().clear();
+
+                closeKeyboard();
+
             }
         });
+    }
+
+    public void closeKeyboard(){
+        View view = this.getActivity().getCurrentFocus();
+        if(view != null){
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     public void setPlantName0(){
@@ -1986,65 +2732,5 @@ public class HomeFragment extends Fragment {
 
     public void setPlantName30(){
         setPlantName(30);
-    }
-
-    public void setPlantName31(){
-        setPlantName(31);
-    }
-
-    public void setPlantName32(){
-        setPlantName(32);
-    }
-
-    public void setPlantName33(){
-        setPlantName(33);
-    }
-
-    public void setPlantName34(){
-        setPlantName(34);
-    }
-
-    public void setPlantName35(){
-        setPlantName(35);
-    }
-
-    public void setPlantName36(){
-        setPlantName(36);
-    }
-
-    public void setPlantName37(){
-        setPlantName(37);
-    }
-
-    public void setPlantName38(){
-        setPlantName(38);
-    }
-
-    public void setPlantName39(){
-        setPlantName(39);
-    }
-
-    public void setPlantName40(){
-        setPlantName(40);
-    }
-
-    public void setPlantName41(){
-        setPlantName(41);
-    }
-
-    public void setPlantName42(){
-        setPlantName(42);
-    }
-
-    public void setPlantName43(){
-        setPlantName(43);
-    }
-
-    public void setPlantName44(){
-        setPlantName(44);
-    }
-
-    public void setPlantName45(){
-        setPlantName(45);
     }
 }
