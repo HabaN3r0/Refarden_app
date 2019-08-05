@@ -7,12 +7,16 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +35,7 @@ import java.util.ArrayList;
 public class NewTradePostActivity extends AppCompatActivity {
 
     private static final String TAG = "New Trade Post Activity";
+    private ScrollView mNewPostScrollView;
     private LinearLayout mNewPostBackButtonLinearLayout;
     private Button mNewPostBackButton;
     private TextView mNewPostProfileName;
@@ -58,6 +63,7 @@ public class NewTradePostActivity extends AppCompatActivity {
         }
 
         mAuth = FirebaseAuth.getInstance();
+        mNewPostScrollView = findViewById(R.id.newPostScrollView);
         mNewPostBackButtonLinearLayout = findViewById(R.id.newPostBackButtonLinearLayout);
         mNewPostBackButton = findViewById(R.id.newPostBackButton);
 //        mNewPostProfileName = findViewById(R.id.newPostProfileName);
@@ -68,6 +74,67 @@ public class NewTradePostActivity extends AppCompatActivity {
         mNewPostUploadGallery = findViewById(R.id.newPostUploadGallery);
         mNewPostDescription = findViewById(R.id.newPostDescriptionEditText);
         mCreatePostAddButton = findViewById(R.id.createNewPostFAB);
+
+
+        EditText mNewPostPlantTypeEditTextedit = mNewPostPlantTypeEditText.getEditText();
+        mNewPostPlantTypeEditTextedit.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+                    mNewPostScrollView.scrollTo(0, 200);
+                    Log.e(TAG, "values");
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        EditText mNewPostPlantsWantedEditTextedit = mNewPostPlantsWantedEditText.getEditText();
+        mNewPostPlantsWantedEditTextedit.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+                    mNewPostScrollView.scrollTo(0, 500);
+                    Log.e(TAG, "values1");
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        EditText mNewPostDescriptionedit = mNewPostDescription.getEditText();
+
+        mNewPostPlantTypeEditTextedit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    mNewPostScrollView.scrollTo(0, 0);
+                    Log.e(TAG, "values2");
+                }
+            }
+        });
+
+        mNewPostPlantsWantedEditTextedit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    mNewPostScrollView.scrollTo(0, 200);
+                    Log.e(TAG, "values4");
+                }
+            }
+        });
+
+        mNewPostDescriptionedit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    mNewPostScrollView.scrollTo(0, 500);
+                    Log.e(TAG, "values6");
+                }
+            }
+        });
 
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();

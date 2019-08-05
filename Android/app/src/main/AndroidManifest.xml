@@ -15,11 +15,7 @@
             android:name=".SignInActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
-<<<<<<< HEAD
-            android:windowSoftInputMode="stateVisible|adjustPan">
-=======
             android:windowSoftInputMode="adjustPan">
->>>>>>> 02c4c518dca11be0ff1f3479f7bfed69093356e1
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,7 +38,7 @@
         <activity
             android:name=".NewTradePostActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan|adjustNothing"/>
         <activity
             android:name=".TradeItemActivity"
             android:windowSoftInputMode="adjustPan"/>

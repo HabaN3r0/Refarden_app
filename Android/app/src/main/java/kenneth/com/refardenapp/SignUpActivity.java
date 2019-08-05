@@ -7,9 +7,12 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private static final String TAG = "SignUpActivity";
 //    private TextInputLayout textInputName;
+    private ScrollView scrollview;
     private TextInputLayout textInputName;
     private TextInputLayout textInputBirth;
     private TextInputLayout textInputEmail;
@@ -54,6 +58,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
+        scrollview = findViewById(R.id.signUpScrollView);
         textInputName = findViewById(R.id.nameInput);
         textInputBirth = findViewById(R.id.birthInput);
         textInputEmail = findViewById(R.id.emailInput);
@@ -69,6 +74,85 @@ public class SignUpActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        EditText textInputNameedit = textInputName.getEditText();
+        EditText textInputBirthedit = textInputBirth.getEditText();
+        EditText textInputEmailedit = textInputEmail.getEditText();
+        EditText textInputPasswordedit = textInputPassword.getEditText();
+        EditText textInputConfirmPasswordedit = textInputConfirmPassword.getEditText();
+
+        textInputNameedit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    scrollview.scrollTo(0, 0);
+                }
+            }
+        });
+
+        textInputBirthedit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    scrollview.scrollTo(0, 0);
+                }
+            }
+        });
+
+        textInputEmailedit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    scrollview.scrollTo(0, 0);
+                }
+            }
+        });
+
+        textInputPasswordedit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    scrollview.scrollTo(0, 300);
+                }
+            }
+        });
+
+        textInputConfirmPasswordedit.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    scrollview.scrollTo(0, 400);
+                }
+            }
+        });
+
+        textInputEmailedit.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+                    scrollview.scrollTo(0, 200);
+                    Log.e(TAG, "values");
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        textInputPasswordedit.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+                    scrollview.scrollTo(0, 400);
+                    Log.e(TAG, "values");
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
     }
 
     private boolean validateEmail() {
