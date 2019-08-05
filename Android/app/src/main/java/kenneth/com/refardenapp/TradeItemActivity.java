@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +26,8 @@ public class TradeItemActivity extends AppCompatActivity {
 
     private static final String TAG = "Trade Item Activity";
     private FirebaseAuth mAuth;
-    private Button mTradeItemtBackButton;
+    private LinearLayout mTradeItemBackButtonLinearLayout;
+    private Button mTradeItemBackButton;
     private TextView mTradeItemProfileName;
     private ImageView mTradeItemProfileImage;
     private ImageView mTradeItemStar1;
@@ -45,7 +47,8 @@ public class TradeItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trade_item);
-        mTradeItemtBackButton = findViewById(R.id.tradeItemBackButton);
+        mTradeItemBackButtonLinearLayout = findViewById(R.id.tradeItemBackButtonLinearLayout);
+        mTradeItemBackButton = findViewById(R.id.tradeItemBackButton);
         mTradeItemProfileName = findViewById(R.id.tradeItemProfileName);
         mTradeItemProfileImage = findViewById(R.id.tradeItemPostProfileImage);
         mTradeItemStar1 = findViewById(R.id.tradeItemStar1);
@@ -87,7 +90,7 @@ public class TradeItemActivity extends AppCompatActivity {
         mTradeItemProfileName.setText(itemOwner);
 //        mTradeItemProfileImage.setImageResource(plantImage);
         mTradeItemPlantType.setText(plantType);
-        mTradeItemPlantsWanted.setText(plantsWanted);
+        mTradeItemPlantsWanted.setText("Plant wanted: " + plantsWanted);
         mTradeItemDescription.setText(description);
         mTradeItemPostPlantImage.setImageResource(plantImage);
         mTradeItemStar1.setImageResource(star1);
@@ -99,7 +102,16 @@ public class TradeItemActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
 
-        mTradeItemtBackButton.setOnClickListener(
+        mTradeItemBackButtonLinearLayout.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                }
+        );
+
+        mTradeItemBackButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

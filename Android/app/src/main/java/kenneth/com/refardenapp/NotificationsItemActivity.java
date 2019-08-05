@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +26,8 @@ public class NotificationsItemActivity extends AppCompatActivity {
 
     private static final String TAG = "Notifications Item Activity";
     private FirebaseAuth mAuth;
-    private Button mNotificationstemtBackButton;
+    private LinearLayout mNotificationsItemBackButtonLinearLayout;
+    private Button mNotificationsItemBackButton;
     private TextView mNotificationsItemProfileName;
     private ImageView mNotificationsItemProfileImage;
     private ImageView mNotificationsItemStar1;
@@ -50,7 +52,8 @@ public class NotificationsItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications_item);
-        mNotificationstemtBackButton = findViewById(R.id.notificationsItemBackButton);
+        mNotificationsItemBackButtonLinearLayout = findViewById(R.id.notificationsItemBackButtonLinearLayout);
+        mNotificationsItemBackButton = findViewById(R.id.notificationsItemBackButton);
         mNotificationsItemProfileName = findViewById(R.id.notificationsItemProfileName);
         mNotificationsItemProfileImage = findViewById(R.id.notificationsItemPostProfileImage);
         mNotificationsItemStar1 = findViewById(R.id.notificationsItemStar1);
@@ -116,7 +119,16 @@ public class NotificationsItemActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
 
-        mNotificationstemtBackButton.setOnClickListener(
+        mNotificationsItemBackButtonLinearLayout.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                }
+        );
+
+        mNotificationsItemBackButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

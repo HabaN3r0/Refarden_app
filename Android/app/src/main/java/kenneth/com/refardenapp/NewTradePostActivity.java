@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ import java.util.ArrayList;
 public class NewTradePostActivity extends AppCompatActivity {
 
     private static final String TAG = "New Trade Post Activity";
+    private LinearLayout mNewPostBackButtonLinearLayout;
     private Button mNewPostBackButton;
     private TextView mNewPostProfileName;
     private ImageView mNewPostProfileImage;
@@ -56,6 +58,7 @@ public class NewTradePostActivity extends AppCompatActivity {
         }
 
         mAuth = FirebaseAuth.getInstance();
+        mNewPostBackButtonLinearLayout = findViewById(R.id.newPostBackButtonLinearLayout);
         mNewPostBackButton = findViewById(R.id.newPostBackButton);
 //        mNewPostProfileName = findViewById(R.id.newPostProfileName);
 //        mNewPostProfileImage = findViewById(R.id.newPostProfileImage);
@@ -86,6 +89,15 @@ public class NewTradePostActivity extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+
+        mNewPostBackButtonLinearLayout.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                }
+        );
 
         mNewPostBackButton.setOnClickListener(
                 new View.OnClickListener() {

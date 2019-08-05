@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/notificationsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
         android:padding="4dp"
         android:scrollbars="vertical"
         android:background="@color/transparent"/>

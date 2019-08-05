@@ -11,24 +11,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="-10dp"
         android:padding="20dp">
 
-        <Button
-            android:id="@+id/tradeItemBackButton"
-            android:layout_width="20dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center"
-            android:background="@drawable/ic_action_back" />
+        <LinearLayout
+            android:id="@+id/tradeItemBackButtonLinearLayout"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="-20dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/tradeItemBackButton"
+                android:layout_width="20dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_action_back" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tradeItemHeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="-30dp"
             android:text="Trade Item"
-            android:textSize="25dp" />
+            android:textSize="25dp"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <LinearLayout
@@ -36,7 +47,7 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="-20dp"
         android:background="@drawable/translucent_containers"
         android:orientation="vertical"
         android:padding="20dp">
@@ -57,7 +68,7 @@
 
             <TextView
                 android:id="@+id/tradeItemProfileName"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:layout_marginStart="20dp"
@@ -69,6 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tradeReview"
+                android:layout_marginStart="-205dp"
                 android:layout_gravity="bottom"
                 android:orientation="horizontal">
 
@@ -120,10 +132,10 @@
             android:id="@+id/tradeItemPlantType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="left"
             android:layout_marginTop="20dp"
             android:text="Item Name"
-            android:textColor="@color/red"
+            android:textColor="@color/brightgrey"
             android:textSize="30dp" />
 
         <TextView
@@ -139,8 +151,8 @@
             android:id="@+id/tradeItemPostPlantImage"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
@@ -148,7 +160,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="Wants"
             android:textSize="15dp" />
 
@@ -158,9 +170,9 @@
         android:id="@+id/tradItemTradeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:background="@drawable/lightgreen_bg_button"
+        android:background="@drawable/dullgreen_bg_button"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:text="Request Trade"

@@ -15,7 +15,11 @@
             android:name=".SignInActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
+<<<<<<< HEAD
             android:windowSoftInputMode="stateVisible|adjustPan">
+=======
+            android:windowSoftInputMode="adjustPan">
+>>>>>>> 02c4c518dca11be0ff1f3479f7bfed69093356e1
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,23 +28,27 @@
         </activity>
         <activity
             android:name=".SignUpActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <!-- android:windowSoftInputMode="stateVisible|adjustPan"/> -->
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <!-- android:windowSoftInputMode="stateVisible|adjustPan"/> -->
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".TestActivity"
             android:label="@string/title_activity_test"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <!-- android:windowSoftInputMode="stateVisible|adjustPan"/> -->
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".NewTradePostActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <!-- android:windowSoftInputMode="stateVisible|adjustPan"/> -->
-        <activity android:name=".TradeItemActivity"></activity>
-        <activity android:name=".NotificationsItemActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".TradeItemActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".NotificationsItemActivity"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

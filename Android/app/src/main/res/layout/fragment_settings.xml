@@ -4,16 +4,45 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:layout_marginTop="20dp">
 
     <TextView
         android:id="@+id/settingsHeader1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:text="Growing Conditions"
         android:textColor="@color/white"
         android:textSize="20dp"/>
+
+    <LinearLayout
+        android:id="@+id/settingsCamera"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:background="@drawable/transparent_bg_bordered_button">
+
+        <TextView
+            android:id="@+id/settingsCameraText"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:text="Camera"/>
+
+        <Switch
+            android:id="@+id/settingsCameraSwitch"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="140dp"
+            android:checked="true"
+            android:theme="@style/Switch"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/settingsAutomate"
@@ -65,7 +94,7 @@
 
         <TextView
             android:id="@+id/settingsTemperaturePercent"
-            android:layout_width="50dp"
+            android:layout_width="55dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
@@ -77,7 +106,7 @@
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="25dp"
             android:theme="@style/SeekBar"/>
 
     </LinearLayout>
@@ -103,7 +132,7 @@
 
         <TextView
             android:id="@+id/settingsLightPercent"
-            android:layout_width="50dp"
+            android:layout_width="55dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
@@ -115,7 +144,7 @@
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="25dp"
             android:theme="@style/SeekBar"/>
 
     </LinearLayout>
@@ -141,7 +170,7 @@
 
         <TextView
             android:id="@+id/settingsConcentrationPercent"
-            android:layout_width="50dp"
+            android:layout_width="55dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
@@ -153,7 +182,7 @@
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="25dp"
             android:theme="@style/SeekBar"/>
 
     </LinearLayout>
@@ -179,7 +208,7 @@
 
         <TextView
             android:id="@+id/settingsWaterFrequencyPercent"
-            android:layout_width="50dp"
+            android:layout_width="55dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
@@ -191,7 +220,7 @@
             android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="25dp"
             android:theme="@style/SeekBar"/>
 
     </LinearLayout>

@@ -137,7 +137,7 @@ public class TradeFragment extends Fragment implements TradeAdapter.OnClickListe
         //Running through "Trading Platform" folder
         for (DataSnapshot ds1 : dataSnapshot.getChildren()) {
             //Running through "UID" folder
-            int plantImage = R.drawable.melon;
+            int plantImage = R.drawable.basil;
             String uid = "Nil";
             String timeStamp = "Nil";
             String plantType = "Nil";
