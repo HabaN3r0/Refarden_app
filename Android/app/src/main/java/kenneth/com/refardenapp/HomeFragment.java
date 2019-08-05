@@ -231,10 +231,10 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        int wid = params.height;
+        int wid = params.width;
 
         lay_Lleft = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Lleft = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Lleft = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         params_Lleft.setMargins(0,0,0,0);
         lay_Lleft.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Lleft.setOrientation(LinearLayout.VERTICAL);
@@ -242,21 +242,21 @@ public class HomeFragment extends Fragment {
         lay_Lleft.setBackgroundResource(R.drawable.mini_small);
 
         lay_Lmid = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Lmid = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Lmid = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Lmid.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Lmid.setOrientation(LinearLayout.VERTICAL);
         lay_Lmid.setLayoutParams(params_Lmid);
         lay_Lmid.setBackgroundResource(R.drawable.mini_small);
 
         lay_Lright = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Lright = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Lright = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Lright.setOrientation(LinearLayout.VERTICAL);
         lay_Lright.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Lright.setLayoutParams(params_Lright);
         lay_Lright.setBackgroundResource(R.drawable.mini_small);
 
         lay_Mleft = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Mleft = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Mleft = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         params_Mleft.setMargins(0,0,0,0);
         lay_Mleft.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Mleft.setOrientation(LinearLayout.VERTICAL);
@@ -264,21 +264,21 @@ public class HomeFragment extends Fragment {
         lay_Mleft.setBackgroundResource(R.drawable.mini_small);
 
         lay_Mmid = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Mmid = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Mmid = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Mmid.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Mmid.setOrientation(LinearLayout.VERTICAL);
         lay_Mmid.setLayoutParams(params_Mmid);
         lay_Mmid.setBackgroundResource(R.drawable.mini_small);
 
         lay_Mright = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Mright = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Mright = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Mright.setOrientation(LinearLayout.VERTICAL);
         lay_Mright.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Mright.setLayoutParams(params_Mright);
         lay_Mright.setBackgroundResource(R.drawable.mini_small);
 
         lay_Rleft = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Rleft = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Rleft = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         params_Rleft.setMargins(0,0,0,0);
         lay_Rleft.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Rleft.setOrientation(LinearLayout.VERTICAL);
@@ -286,14 +286,14 @@ public class HomeFragment extends Fragment {
         lay_Rleft.setBackgroundResource(R.drawable.mini_small);
 
         lay_Rmid = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Rmid = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Rmid = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Rmid.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Rmid.setOrientation(LinearLayout.VERTICAL);
         lay_Rmid.setLayoutParams(params_Rmid);
         lay_Rmid.setBackgroundResource(R.drawable.mini_small);
 
         lay_Rright = new LinearLayout(this.getActivity());
-        LinearLayout.LayoutParams params_Rright = new LinearLayout.LayoutParams((int)(wid*2/9), LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams params_Rright = new LinearLayout.LayoutParams((int)(wid/3), LinearLayout.LayoutParams.MATCH_PARENT);
         lay_Rright.setOrientation(LinearLayout.VERTICAL);
         lay_Rright.setHorizontalGravity(Gravity.CENTER_HORIZONTAL);
         lay_Rright.setLayoutParams(params_Rright);

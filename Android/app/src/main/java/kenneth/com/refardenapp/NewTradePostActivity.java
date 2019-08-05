@@ -99,6 +99,15 @@ public class NewTradePostActivity extends AppCompatActivity {
                 }
         );
 
+        mNewPostBackButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                }
+        );
+
         mNewPostUploadCamera.setOnClickListener(
                 new View.OnClickListener() {
                     @Override

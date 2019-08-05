@@ -27,7 +27,7 @@ public class TradeItemActivity extends AppCompatActivity {
     private static final String TAG = "Trade Item Activity";
     private FirebaseAuth mAuth;
     private LinearLayout mTradeItemBackButtonLinearLayout;
-    private Button mTradeItemtBackButton;
+    private Button mTradeItemBackButton;
     private TextView mTradeItemProfileName;
     private ImageView mTradeItemProfileImage;
     private ImageView mTradeItemStar1;
@@ -48,7 +48,7 @@ public class TradeItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trade_item);
         mTradeItemBackButtonLinearLayout = findViewById(R.id.tradeItemBackButtonLinearLayout);
-        mTradeItemtBackButton = findViewById(R.id.tradeItemBackButton);
+        mTradeItemBackButton = findViewById(R.id.tradeItemBackButton);
         mTradeItemProfileName = findViewById(R.id.tradeItemProfileName);
         mTradeItemProfileImage = findViewById(R.id.tradeItemPostProfileImage);
         mTradeItemStar1 = findViewById(R.id.tradeItemStar1);
@@ -103,6 +103,15 @@ public class TradeItemActivity extends AppCompatActivity {
         final DatabaseReference myRef = database.getReference();
 
         mTradeItemBackButtonLinearLayout.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                }
+        );
+
+        mTradeItemBackButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

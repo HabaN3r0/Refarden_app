@@ -128,6 +128,15 @@ public class NotificationsItemActivity extends AppCompatActivity {
                 }
         );
 
+        mNotificationsItemBackButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                }
+        );
+
 
         // Read from the database
         myRef.child("User Accounts").child(mAuth.getCurrentUser().getUid()).child("Profile").addValueEventListener(new ValueEventListener() {
