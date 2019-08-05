@@ -2,14 +2,13 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/newPostScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/background"
     android:fillViewport="true"
-    android:id="@+id/newPostScrollView"
-    tools:context="kenneth.com.refardenapp.NewTradePostActivity"
-    >
+    android:orientation="vertical"
+    tools:context="kenneth.com.refardenapp.NewTradePostActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,24 +19,24 @@
             android:id="@+id/newPostHeaderBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="-10dp"
+            android:orientation="horizontal"
             android:padding="20dp">
 
             <LinearLayout
                 android:id="@+id/newPostBackButtonLinearLayout"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:layout_gravity="center"
                 android:layout_marginStart="-20dp"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/newPostBackButton"
                     android:layout_width="20dp"
                     android:layout_height="25dp"
-                    android:layout_marginStart="20dp"
                     android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
                     android:background="@drawable/ic_action_back" />
 
             </LinearLayout>
@@ -49,8 +48,8 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="-30dp"
                 android:text="New Post"
-                android:textSize="25dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25dp" />
         </LinearLayout>
 
         <!--<LinearLayout-->
@@ -103,11 +102,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Plant you are giving"
-                    android:textCursorDrawable="@drawable/greycursor"
+                    android:inputType="text"
                     android:textColor="@color/grey"
                     android:textColorHint="@color/grey"
-                    android:inputType="text"
-                    app:backgroundTint="@color/transparent"/>
+                    android:textCursorDrawable="@drawable/greycursor"
+                    app:backgroundTint="@color/transparent" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -136,11 +135,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Plants you want"
-                    android:textCursorDrawable="@drawable/greycursor"
+                    android:inputType="text"
                     android:textColor="@color/grey"
                     android:textColorHint="@color/grey"
-                    android:inputType="text"
-                    app:backgroundTint="@color/transparent"/>
+                    android:textCursorDrawable="@drawable/greycursor"
+                    app:backgroundTint="@color/transparent" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -261,7 +260,6 @@
                     android:text="Gallery"
                     android:textColor="@color/grey"
                     android:textSize="10dp" />
-
             </LinearLayout>
 
         </LinearLayout>
@@ -273,11 +271,11 @@
             android:layout_marginStart="175dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/ic_add"
-            app:backgroundTint="@color/brightgrey"/>
+            app:backgroundTint="@color/brightgrey" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:orientation="horizontal">
 
         </LinearLayout>

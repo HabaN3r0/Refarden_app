@@ -1,8 +1,10 @@
 package kenneth.com.refardenapp;
 
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -81,6 +83,7 @@ public class ProfileFragment extends Fragment {
         return view;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void updateUi(DataSnapshot dataSnapshot){
         HashMap<String, String> plantTypesList = new HashMap<>();
         String print = "";
@@ -109,26 +112,26 @@ public class ProfileFragment extends Fragment {
                 if (ds.getValue().equals(null)) {} else {
                     mProfileEmail.setText(ds.getValue().toString());
                 }
-            } else if (ds.getKey().equals("Start Date")) {
-                if (ds.getValue().equals(null)) {} else {
-
-                    //Compare start date with current date
-                    SimpleDateFormat myFormat = new SimpleDateFormat("ddMMyyyy");
-                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("ddMMyyyy");
-                    LocalDateTime currentDate = LocalDateTime.now();
-                    String inputString1 = ds.getValue().toString();
-                    String inputString2 = dtf.format(currentDate);
-
-                    Log.w(TAG, "date1: " + inputString1 + " date2: " + inputString2);
-                    try {
-                        Date date1 = myFormat.parse(inputString1);
-                        Date date2 = myFormat.parse(inputString2);
-                        long diff = date2.getTime() - date1.getTime();
-                        mProfileExperience.setText(TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + " days");
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                }
+//            } else if (ds.getKey().equals("Start Date")) {
+//                if (ds.getValue().equals(null)) {} else {
+//
+//                    //Compare start date with current date
+////                    SimpleDateFormat myFormat = new SimpleDateFormat("ddMMyyyy");
+////                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("ddMMyyyy");
+////                    LocalDateTime currentDate = LocalDateTime.now();
+////                    String inputString1 = ds.getValue().toString();
+////                    String inputString2 = dtf.format(currentDate);
+//
+//                    Log.w(TAG, "date1: " + inputString1 + " date2: " + inputString2);
+//                    try {
+//                        Date date1 = myFormat.parse(inputString1);
+//                        Date date2 = myFormat.parse(inputString2);
+//                        long diff = date2.getTime() - date1.getTime();
+//                        mProfileExperience.setText(TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS) + " days");
+//                    } catch (ParseException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
             } else if (ds.getKey().equals("Plant Types")) {
                 if (ds.getValue().equals(null)) {} else {
                     for (DataSnapshot ds2 : ds.getChildren()) {

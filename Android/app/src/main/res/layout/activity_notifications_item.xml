@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="Your plant in the market"
+            android:text="Wants to trade your: "
             android:textSize="15dp" />
 
         <LinearLayout
@@ -157,7 +157,7 @@
                 android:layout_gravity="center"
                 android:text="Owner Item"
                 android:textColor="@color/brightgrey"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
             <ImageView
                 android:id="@+id/notificationsItemOwnerItemImage"
@@ -175,7 +175,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:text="Plants from ..."
+            android:text="For: "
             android:textSize="15dp" />
 
         <LinearLayout
@@ -195,7 +195,7 @@
                 android:layout_gravity="center"
                 android:text="Requester Item"
                 android:textColor="@color/brightgrey"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
             <ImageView
                 android:id="@+id/notificationsItemRequesterItemImage"

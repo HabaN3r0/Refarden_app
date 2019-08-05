@@ -135,8 +135,7 @@
                     android:id="@+id/textplantname"
                     android:layout_width="200dp"
                     android:layout_height="70dp"
-                    android:layout_centerHorizontal="true"
-                    />
+                    android:layout_centerHorizontal="true"/>
 
                 <Button
                     android:id="@+id/button_enter_name"
@@ -173,6 +172,7 @@
             android:layout_alignStart="@+id/homeMsg"
             android:layout_marginStart="80dp"
             android:layout_marginTop="70dp"
+
             android:background="@drawable/translucent_containers">
 
 
@@ -199,7 +199,6 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="7dp"
             android:layout_marginTop="0dp"
-            android:background="@drawable/translucent_containers"
             android:orientation="horizontal">
 
             <TextView
@@ -222,9 +221,6 @@
                 android:layout_marginTop="40dp"
                 android:orientation="horizontal"
                 android:background="@drawable/translucent_loweropacity_containers"/>
-
-
-
             </LinearLayout>
 
 
@@ -236,6 +232,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="7dp"
             android:layout_marginTop="0dp"
+
             android:orientation="horizontal">
 
 
@@ -261,8 +258,6 @@
                 android:layout_marginTop="40dp"
                 android:orientation="horizontal"
                 android:background="@drawable/translucent_loweropacity_containers"/>
-
-
             </LinearLayout>
 
         <LinearLayout
@@ -272,8 +267,8 @@
             android:layout_alignStart="@+id/homeMsg"
             android:layout_alignParentTop="true"
             android:layout_marginStart="7dp"
-            android:layout_marginTop="0dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="0dp">
+
 
         <TextView
             android:id="@+id/headerright"
@@ -307,6 +302,7 @@
             android:layout_alignStart="@+id/homeMsg"
             android:layout_marginStart="345dp"
             android:layout_marginTop="70dp"
+
             android:background="@drawable/translucent_containers">
 
             <LinearLayout
@@ -343,60 +339,7 @@
 
     </RelativeLayout>
 
-    <!--LinearLayout
-        android:id="@+id/containers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/container1"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
-            android:layout_marginStart="-125dp"
-            android:background="@drawable/translucent_containers"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/toggleLeftButton"
-                android:layout_width="27dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="150dp"
-                android:layout_marginTop="120dp"
-                android:background="@drawable/ic_action_toggle_left" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/container2"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/translucent_containers"
-            android:orientation="vertical">
-
-        </Button>
-
-        <LinearLayout
-            android:id="@+id/container3"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/translucent_containers"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/toggleRightButton"
-                android:layout_width="27dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="120dp"
-                android:background="@drawable/ic_action_toggle_right" />
-
-        </LinearLayout>
-
-    </LinearLayout-->
 
     <TextView
         android:id="@+id/header2"

@@ -1,7 +1,9 @@
 package kenneth.com.refardenapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -61,6 +64,7 @@ public class NewTradePostActivity extends AppCompatActivity {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                     WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
+
 
         mAuth = FirebaseAuth.getInstance();
         mNewPostScrollView = findViewById(R.id.newPostScrollView);
@@ -136,6 +140,7 @@ public class NewTradePostActivity extends AppCompatActivity {
             }
         });
 
+
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference();
@@ -195,6 +200,7 @@ public class NewTradePostActivity extends AppCompatActivity {
 
         mCreatePostAddButton.setOnClickListener(
                 new View.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onClick(View v) {
                         uploadPost(myRef);
@@ -265,6 +271,7 @@ public class NewTradePostActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void uploadPost(DatabaseReference myRef) {
 
         if (!validatePlantType() | !validatePlantsWanted() | !validateDescription()) {
@@ -297,4 +304,6 @@ public class NewTradePostActivity extends AppCompatActivity {
                 Toast.LENGTH_LONG).show();
         finish();
     }
+
+
 }
