@@ -41,8 +41,9 @@ public class SettingsFragment extends Fragment {
 
     private static final String TAG = "Settings Fragment";
     private Switch autoSwitch;
+    private Switch mCameraSwitch;
     private SeekBar tempSeek;
-    private SeekBar lightSeek;
+    private Switch mLightSwitch;
     private SeekBar concSeek;
     private SeekBar freqSeek;
     private TextView tempPercent;
@@ -69,14 +70,15 @@ public class SettingsFragment extends Fragment {
         //Set Fragment Title
         getActivity().setTitle("Settings");
 
+        mCameraSwitch = view.findViewById(R.id.settingsCameraSwitch);
+
         autoSwitch = view.findViewById(R.id.settingsAutomateSwitch);
         settingsTemp = view.findViewById(R.id.settingsTemperature);
         tempSeek = view.findViewById(R.id.settingsTemperatureSeek);
         tempPercent = view.findViewById(R.id.settingsTemperaturePercent);
 
         settingsLight = view.findViewById(R.id.settingsLight);
-        lightSeek = view.findViewById(R.id.settingsLightSeek);
-        lightPercent = view.findViewById(R.id.settingsLightPercent);
+        mLightSwitch = view.findViewById(R.id.settingsLightSwitch);
 
 
         settingsConc = view.findViewById(R.id.settingsConcentration);
@@ -126,10 +128,37 @@ public class SettingsFragment extends Fragment {
 
                             //Initialise the seekbars
                             setTempSeek(view, myRef);
-                            setLightSeek(view, myRef);
+//                            setLightSeek(view, myRef);
                             setConcSeek(view, myRef);
                             setFreqSeek(view, myRef);
+                        }
+                    }
+                }
+        );
 
+        mCameraSwitch.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (mCameraSwitch.isChecked()) {
+                            myRef.child("Camera").setValue("True");
+                        } else {
+                            myRef.child("Camera").setValue("False");
+                        }
+
+                    }
+                }
+        );
+
+        mLightSwitch.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (mLightSwitch.isChecked()) {
+                            myRef.child("Light").setValue("True");
+                        } else {
+                            myRef.child("Light").setValue("False");
                         }
                     }
                 }
@@ -171,8 +200,9 @@ public class SettingsFragment extends Fragment {
 
     public void checkAutomate(DataSnapshot dataSnapshot, View view, DatabaseReference myRef){
         String automateCheck = "on";
+        String  cameraCheck = "False";
         String temperatureCheck = "0";
-        String lightCheck = "0";
+        String lightCheck = "False";
         String concentrationCheck = "0";
         String frequencyCheck = "0";
 
@@ -181,10 +211,22 @@ public class SettingsFragment extends Fragment {
             Log.d(TAG, "ds is:  " + ds.getKey());
             if (ds.getKey().equals("Automate")) {
                 automateCheck = ds.getValue().toString();
+            } else if (ds.getKey().equals("Camera")) {
+                cameraCheck = ds.getValue().toString();
+                if (cameraCheck.equals("True")) {
+                    mCameraSwitch.setChecked(true);
+                } else {
+                    mCameraSwitch.setChecked(false);
+                }
             } else if (ds.getKey().equals("Temperature")) {
                 temperatureCheck = ds.getValue().toString();
             } else if (ds.getKey().equals("Light")) {
                 lightCheck = ds.getValue().toString();
+                if (lightCheck.equals("True")) {
+                    mLightSwitch.setChecked(true);
+                } else {
+                    mLightSwitch.setChecked(false);
+                }
             } else if (ds.getKey().equals("Concentration")) {
                 concentrationCheck = ds.getValue().toString();
             } else if (ds.getKey().equals("Frequency")) {
@@ -199,7 +241,7 @@ public class SettingsFragment extends Fragment {
             settingsTemp.setVisibility(View.VISIBLE);
             setTempSeek(view, myRef);
             settingsLight.setVisibility(View.VISIBLE);
-            setLightSeek(view, myRef);
+//            setLightSeek(view, myRef);
             settingsConc.setVisibility(View.VISIBLE);
             setConcSeek(view, myRef);
             settingsFreq.setVisibility(View.VISIBLE);
@@ -207,40 +249,40 @@ public class SettingsFragment extends Fragment {
         }
 
         tempSeek.setProgress(Integer.valueOf(temperatureCheck));
-        lightSeek.setProgress(Integer.valueOf(lightCheck));
+//        lightSeek.setProgress(Integer.valueOf(lightCheck));
         concSeek.setProgress(Integer.valueOf(concentrationCheck));
         freqSeek.setProgress(Integer.valueOf(frequencyCheck));
     }
 
-    public void setLightSeek(View view, final DatabaseReference myRef){
-        int maxLight = 1000;
-        lightSeek.setMax(maxLight);
-        lightPercent.setText(lightSeek.getProgress() + "lm");
-
-        lightSeek.setOnSeekBarChangeListener(
-                new SeekBar.OnSeekBarChangeListener() {
-                    int progressValue;
-                    @Override
-                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                        progressValue = progress;
-                        lightPercent.setText(progressValue + "lm");
-                    }
-
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
-
-                    }
-
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-                        lightPercent.setText(progressValue + "lm");
-
-                        myRef.child("Light").setValue(progressValue);
-                    }
-                }
-        );
-
-    }
+//    public void setLightSeek(View view, final DatabaseReference myRef){
+//        int maxLight = 1000;
+//        lightSeek.setMax(maxLight);
+//        lightPercent.setText(lightSeek.getProgress() + "lm");
+//
+//        lightSeek.setOnSeekBarChangeListener(
+//                new SeekBar.OnSeekBarChangeListener() {
+//                    int progressValue;
+//                    @Override
+//                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                        progressValue = progress;
+//                        lightPercent.setText(progressValue + "lm");
+//                    }
+//
+//                    @Override
+//                    public void onStartTrackingTouch(SeekBar seekBar) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onStopTrackingTouch(SeekBar seekBar) {
+//                        lightPercent.setText(progressValue + "lm");
+//
+//                        myRef.child("Light").setValue(progressValue);
+//                    }
+//                }
+//        );
+//
+//    }
 
     public void setConcSeek(View view, final DatabaseReference myRef){
         int maxConc = 100;

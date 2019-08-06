@@ -130,22 +130,14 @@
             android:textColor="@color/white"
             android:text="Light:"/>
 
-        <TextView
-            android:id="@+id/settingsLightPercent"
-            android:layout_width="55dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/white"
-            android:text="0000lm"/>
-
-        <SeekBar
-            android:id="@+id/settingsLightSeek"
-            android:layout_width="120dp"
+        <Switch
+            android:id="@+id/settingsLightSwitch"
+            android:layout_width="50dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginStart="25dp"
-            android:theme="@style/SeekBar"/>
+            android:layout_marginStart="140dp"
+            android:checked="true"
+            android:theme="@style/Switch"/>
 
     </LinearLayout>
 
