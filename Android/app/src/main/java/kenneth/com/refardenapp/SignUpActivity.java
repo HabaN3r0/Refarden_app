@@ -155,6 +155,34 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
+    private boolean validateName() {
+        String emailInput = textInputEmail.getEditText().getText().toString().trim();
+
+        if (emailInput.isEmpty()) {
+            textInputName.setError("Field can't be empty");
+            return false;
+        }
+        else {
+            textInputName.setError(null);
+//            textInputEmail.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validateBirth() {
+        String emailInput = textInputEmail.getEditText().getText().toString().trim();
+
+        if (emailInput.isEmpty()) {
+            textInputBirth.setError("Field can't be empty");
+            return false;
+        }
+        else {
+            textInputBirth.setError(null);
+//            textInputEmail.setErrorEnabled(false);
+            return true;
+        }
+    }
+
     private boolean validateEmail() {
         String emailInput = textInputEmail.getEditText().getText().toString().trim();
 
@@ -209,7 +237,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void confirmInput(View v) {
 
-        if (!validateEmail() | !validatePassword() | !validateConfirmPassword()) {
+        if (!validateEmail() | !validatePassword() | !validateConfirmPassword() | !validateName() | !validateBirth()) {
             return;
         }
         String nameInput = textInputName.getEditText().getText().toString().trim();

@@ -14,8 +14,8 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/addTradeFAB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginStart="175dp"
         android:layout_marginTop="600dp"
         android:src="@drawable/ic_add"

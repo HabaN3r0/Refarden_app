@@ -127,7 +127,7 @@
         android:background="@color/transparent"
         android:text="Sign up here"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/brightgrey"
         android:textSize="12dp" />
 
 
