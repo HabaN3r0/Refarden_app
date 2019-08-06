@@ -43,19 +43,19 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     // Main layout elements
-    public LinearLayout[] pot_wrapper = new LinearLayout[45];
-    public LinearLayout[] pot_list = new LinearLayout[45];
-    public LinearLayout[] pot_progress = new LinearLayout[45];
-    public TextView[] pot_text = new TextView[45];
-    public TextView[] percentage_text = new TextView[45];
+    public LinearLayout[] pot_wrapper = new LinearLayout[100];
+    public LinearLayout[] pot_list = new LinearLayout[100];
+    public LinearLayout[] pot_progress = new LinearLayout[100];
+    public TextView[] pot_text = new TextView[100];
+    public TextView[] percentage_text = new TextView[100];
 
     // Popup layout elements
-    public LinearLayout[] big_pot_wrapper = new LinearLayout[45];
-    public LinearLayout[] big_pot_list = new LinearLayout[45];
-    public LinearLayout[] big_pot_progress = new LinearLayout[45];
-    public TextView[] big_pot_text = new TextView[45];
-    public TextView[] big_percentage_text = new TextView[45];
-    public LinearLayout[] big_button_list = new LinearLayout[45];
+    public LinearLayout[] big_pot_wrapper = new LinearLayout[100];
+    public LinearLayout[] big_pot_list = new LinearLayout[100];
+    public LinearLayout[] big_pot_progress = new LinearLayout[100];
+    public TextView[] big_pot_text = new TextView[100];
+    public TextView[] big_percentage_text = new TextView[100];
+    public LinearLayout[] big_button_list = new LinearLayout[100];
 
     // All major layout elements
     public RelativeLayout relativeMain;
