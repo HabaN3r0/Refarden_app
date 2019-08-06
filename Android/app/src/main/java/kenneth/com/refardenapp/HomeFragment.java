@@ -242,6 +242,7 @@ public class HomeFragment extends Fragment {
         lay_big_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                closeKeyboard();
                 lay_big_name.setVisibility(View.INVISIBLE);
             }
         });
