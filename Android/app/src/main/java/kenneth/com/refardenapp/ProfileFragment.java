@@ -59,6 +59,8 @@ public class ProfileFragment extends Fragment {
         mProfileExperience = view.findViewById(R.id.profileExperience);
         mProfilePlantTypes = view.findViewById(R.id.profilePlantTypes);
 
+
+        mProfileImage.setImageResource(R.mipmap.ic_jo_round);
         // Creating database instance and reference
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("User Accounts").child(mAuth.getCurrentUser().getUid()).child("Profile");
